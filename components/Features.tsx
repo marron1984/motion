@@ -134,18 +134,18 @@ export default function Features() {
                 initial={
                   reducedMotion
                     ? { opacity: 1 }
-                    : { opacity: 0, y: 40, scale: 0.92, rotateX: 8 }
+                    : { opacity: 0, y: 24, scale: 0.96 }
                 }
-                animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={
                   reducedMotion
                     ? { opacity: 0 }
-                    : { opacity: 0, y: -30, scale: 0.96, rotateX: -4 }
+                    : { opacity: 0, y: -16, scale: 0.98 }
                 }
                 transition={
                   reducedMotion
                     ? { duration: 0.01 }
-                    : { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
+                    : { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }
                 }
                 className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-border bg-surface-elevated shadow-2xl sm:max-w-md"
                 style={{ perspective: 1000 }}

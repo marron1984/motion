@@ -40,9 +40,9 @@ function GalleryGrid({ onSelect }: { onSelect: (index: number) => void }) {
       {portfolioImages.map((img, i) => (
         <motion.button
           key={img.id}
-          initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 30, scale: 0.9 }}
+          initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 20, scale: 0.95 }}
           animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-          transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.5, delay: Math.min(i * 0.04, 0.4), ease: [0.25, 0.46, 0.45, 0.94] }}
           onClick={() => onSelect(i)}
           className="group relative overflow-hidden rounded-xl bg-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
           style={{ aspectRatio: img.width > img.height ? "4/3" : "3/4" }}

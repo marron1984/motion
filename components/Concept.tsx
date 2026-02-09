@@ -63,9 +63,9 @@ export default function Concept() {
           <motion.div
             className="relative overflow-hidden rounded-xl"
             style={{ aspectRatio: "4/3" }}
-            initial={reducedMotion ? { opacity: 0 } : { opacity: 0, x: -30 }}
+            initial={reducedMotion ? { opacity: 0 } : { opacity: 0, x: -15 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <Image
               src="/images/photos/photo-7.jpg"
@@ -79,9 +79,9 @@ export default function Concept() {
           <motion.div
             className="relative overflow-hidden rounded-xl"
             style={{ aspectRatio: "4/3" }}
-            initial={reducedMotion ? { opacity: 0 } : { opacity: 0, x: 30 }}
+            initial={reducedMotion ? { opacity: 0 } : { opacity: 0, x: 15 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <Image
               src="/images/photos/photo-8.jpg"

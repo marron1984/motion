@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section className="relative h-[100svh] min-h-[600px] w-full overflow-hidden">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 animate-gradient bg-gradient-to-br from-[#0a0808] via-[#12100a] to-[#0a0a08]" />
+      <div className="absolute inset-0 animate-gradient bg-gradient-to-br from-[#1c1917] via-[#211f1b] to-[#1c1a17]" />
 
       {/* Hero image */}
       <div className="absolute inset-0">

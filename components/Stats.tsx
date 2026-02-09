@@ -68,13 +68,13 @@ export default function Stats() {
             initial={
               reducedMotion
                 ? { opacity: 0 }
-                : { opacity: 0, y: 30, scale: 0.95 }
+                : { opacity: 0, y: 16, scale: 0.97 }
             }
             animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
             transition={{
-              duration: 0.6,
-              delay: i * 0.12,
-              ease: [0.22, 1, 0.36, 1],
+              duration: 0.45,
+              delay: i * 0.06,
+              ease: [0.25, 0.46, 0.45, 0.94],
             }}
           >
             <motion.div
@@ -82,9 +82,9 @@ export default function Stats() {
               initial={{ scaleX: 0 }}
               animate={inView ? { scaleX: 1 } : {}}
               transition={{
-                duration: 0.8,
-                delay: 0.3 + i * 0.12,
-                ease: [0.22, 1, 0.36, 1],
+                duration: 0.6,
+                delay: 0.15 + i * 0.06,
+                ease: [0.25, 0.46, 0.45, 0.94],
               }}
               style={{ backgroundColor: stat.accent, transformOrigin: "left" }}
             />

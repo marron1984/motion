@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a08;
+  --background: #1c1a17;
   --foreground: #f0ede8;
   --gold: #c9a96e;
   --gold-light: #dfc492;
@@ -9,10 +9,10 @@
   --accent: #c9a96e;
   --accent-dim: #8a7040;
   --accent-hot: #dfc492;
-  --surface: #131210;
-  --surface-elevated: #1a1916;
-  --border: rgba(201, 169, 110, 0.1);
-  --text-muted: #7a7568;
+  --surface: #23211d;
+  --surface-elevated: #2a2824;
+  --border: rgba(201, 169, 110, 0.12);
+  --text-muted: #8a8578;
 }
 
 @theme inline {
@@ -54,6 +54,13 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU-accelerated smooth transitions globally */
+img, [class*="animate-"], .rounded-xl, .rounded-2xl {
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 ::-webkit-scrollbar { width: 4px; }

@@ -51,13 +51,13 @@ export default function HorizontalScroll() {
               initial={
                 reducedMotion
                   ? { opacity: 0 }
-                  : { opacity: 0, x: 40, scale: 0.95 }
+                  : { opacity: 0, x: 20, scale: 0.97 }
               }
               animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
               transition={{
-                duration: 0.6,
-                delay: i * 0.1,
-                ease: [0.22, 1, 0.36, 1],
+                duration: 0.5,
+                delay: i * 0.06,
+                ease: [0.25, 0.46, 0.45, 0.94],
               }}
               whileHover={reducedMotion ? {} : { y: -4 }}
               whileTap={{ scale: 0.98 }}
