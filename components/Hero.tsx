@@ -27,7 +27,7 @@ export default function Hero() {
       {/* Hero image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/photos/photo-3.jpg"
+          src="/images/photos/photo-7.jpg"
           alt="DHP HOSPITALITY"
           fill
           priority

@@ -68,8 +68,8 @@ export default function Concept() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <Image
-              src="/images/photos/photo-7.jpg"
-              alt="Lounge with kumiko wall"
+              src="/images/photos/photo-3.jpg"
+              alt="Hotel exterior"
               fill
               sizes="(max-width: 640px) 50vw, 320px"
               className="object-cover"
