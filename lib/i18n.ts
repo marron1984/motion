@@ -117,6 +117,27 @@ export interface Translations {
     links: string[];
     copyright: string;
   };
+  pages: {
+    privacy: {
+      title: string;
+      lastUpdated: string;
+      sections: { heading: string; body: string }[];
+    };
+    terms: {
+      title: string;
+      lastUpdated: string;
+      sections: { heading: string; body: string }[];
+    };
+    careers: {
+      title: string;
+      intro: string;
+      values: { title: string; desc: string }[];
+      valuesLabel: string;
+      positions: { title: string; type: string; desc: string }[];
+      positionsLabel: string;
+      contactNote: string;
+    };
+  };
 }
 
 export const translations: Record<Locale, Translations> = {
@@ -270,6 +291,52 @@ export const translations: Record<Locale, Translations> = {
           { title: "24時間サポート体制", desc: "オーナー様への迅速な対応" },
         ],
         featuresLabel: "運営の特徴",
+      },
+    },
+    pages: {
+      privacy: {
+        title: "プライバシーポリシー",
+        lastUpdated: "最終更新日：2025年1月1日",
+        sections: [
+          { heading: "1. 個人情報の収集", body: "当社は、サービスの提供にあたり、お名前、ご連絡先、メールアドレスなどの個人情報を適正な手段で収集いたします。収集は利用目的の達成に必要な範囲に限定し、お客様の同意を得たうえで行います。" },
+          { heading: "2. 利用目的", body: "収集した個人情報は、サービスの提供・改善、お問い合わせへの対応、各種ご案内の送付、及び法令に基づく対応のために利用いたします。利用目的の範囲を超えて個人情報を利用することはありません。" },
+          { heading: "3. 第三者提供", body: "当社は、法令に定められた場合を除き、お客様の同意を得ることなく個人情報を第三者に提供することはありません。業務委託先に提供する場合は、適切な監督を行います。" },
+          { heading: "4. 安全管理措置", body: "当社は、個人情報の漏えい、滅失、き損の防止その他の安全管理のために、組織的・技術的・物理的な安全管理措置を講じます。" },
+          { heading: "5. 開示・訂正・削除", body: "お客様ご本人から個人情報の開示、訂正、削除等のご請求があった場合は、本人確認のうえ、合理的な期間内に対応いたします。" },
+          { heading: "6. Cookie等の使用", body: "当社ウェブサイトでは、利便性向上やアクセス分析のためにCookieおよび類似技術を使用する場合があります。ブラウザの設定によりCookieを無効にすることも可能ですが、一部サービスが正常にご利用いただけない場合があります。" },
+          { heading: "7. ポリシーの変更", body: "当社は、法令の改正やサービスの変更に伴い、本ポリシーを改定する場合があります。重要な変更がある場合は、当社ウェブサイトにて通知いたします。" },
+          { heading: "8. お問い合わせ", body: "個人情報の取り扱いに関するお問い合わせは、当社ウェブサイトのお問い合わせフォームよりご連絡ください。" },
+        ],
+      },
+      terms: {
+        title: "利用規約",
+        lastUpdated: "最終更新日：2025年1月1日",
+        sections: [
+          { heading: "第1条（適用）", body: "本利用規約は、株式会社DHP Urban Development（以下「当社」）が提供するすべてのサービスに適用されます。ご利用者様は、本規約に同意のうえサービスをご利用ください。" },
+          { heading: "第2条（定義）", body: "「サービス」とは、当社が運営するウェブサイト及びそれに関連するすべてのサービスを指します。「利用者」とは、当社のサービスを利用するすべての方を指します。" },
+          { heading: "第3条（禁止事項）", body: "利用者は以下の行為を行ってはなりません：法令に違反する行為、当社または第三者の権利を侵害する行為、虚偽の情報を提供する行為、サービスの運営を妨害する行為、その他当社が不適切と判断する行為。" },
+          { heading: "第4条（知的財産権）", body: "当社サイト上のすべてのコンテンツ（テキスト、画像、ロゴ、デザイン等）に関する知的財産権は、当社または正当な権利者に帰属します。無断での複製・転載・改変は禁止します。" },
+          { heading: "第5条（免責事項）", body: "当社は、サービスの内容の正確性、完全性、有用性について保証するものではありません。サービスの利用により生じた損害について、当社の故意または重大な過失による場合を除き、責任を負いません。" },
+          { heading: "第6条（サービスの変更・停止）", body: "当社は、事前の通知なくサービスの内容を変更、または一時的に停止・終了することがあります。これにより利用者に生じた損害について、当社は責任を負いません。" },
+          { heading: "第7条（準拠法・管轄）", body: "本規約は日本法に基づき解釈されるものとし、紛争が生じた場合は大阪地方裁判所を第一審の専属的合意管轄裁判所とします。" },
+        ],
+      },
+      careers: {
+        title: "採用情報",
+        intro: "DHP HOSPITALITYは、ホスピタリティの未来を共に創る仲間を求めています。医療と宿泊の融合という、まだ誰も見たことのないフィールドで、あなたの力を活かしませんか。",
+        valuesLabel: "私たちが大切にすること",
+        values: [
+          { title: "挑戦する姿勢", desc: "前例のないことに果敢に取り組み、新しい価値を創造する意欲を持つ方を歓迎します。" },
+          { title: "おもてなしの心", desc: "お客様一人ひとりに寄り添い、期待を超える体験を届けることに情熱を持てる方。" },
+          { title: "チームワーク", desc: "多様なバックグラウンドを持つメンバーと協力し、チームとして最高の成果を目指す方。" },
+        ],
+        positionsLabel: "募集職種",
+        positions: [
+          { title: "ホテル開発マネージャー", type: "正社員 / 大阪", desc: "新規ホテルプロジェクトの企画・開発から開業まで一気通貫で推進するポジションです。" },
+          { title: "ブランド戦略担当", type: "正社員 / 大阪", desc: "国際ホテルブランドとの提携交渉・ブランド基準の適合管理を担当します。" },
+          { title: "運営統括マネージャー", type: "正社員 / 奈良", desc: "フランチャイズホテルの運営管理・収益最大化を推進するポジションです。" },
+        ],
+        contactNote: "ご応募・お問い合わせは、お問い合わせフォームまたはメールにてご連絡ください。",
       },
     },
     footer: {
@@ -433,6 +500,52 @@ export const translations: Record<Locale, Translations> = {
           { title: "24/7 Support", desc: "Rapid response for all owners" },
         ],
         featuresLabel: "Management Features",
+      },
+    },
+    pages: {
+      privacy: {
+        title: "Privacy Policy",
+        lastUpdated: "Last updated: January 1, 2025",
+        sections: [
+          { heading: "1. Collection of Personal Information", body: "We collect personal information such as names, contact details, and email addresses through proper means to the extent necessary for providing our services, with the consent of the individual." },
+          { heading: "2. Purpose of Use", body: "Collected personal information is used for providing and improving our services, responding to inquiries, sending various notifications, and responding in accordance with applicable laws. We do not use personal information beyond the stated purposes." },
+          { heading: "3. Disclosure to Third Parties", body: "We will not provide personal information to third parties without the consent of the individual, except as required by law. When outsourcing to service providers, we ensure appropriate supervision." },
+          { heading: "4. Security Measures", body: "We implement organizational, technical, and physical security measures to prevent leakage, loss, and damage of personal information." },
+          { heading: "5. Disclosure, Correction & Deletion", body: "When an individual requests disclosure, correction, or deletion of their personal information, we will respond within a reasonable period after verifying their identity." },
+          { heading: "6. Use of Cookies", body: "Our website may use cookies and similar technologies to improve usability and analyze access. You may disable cookies through your browser settings, but some services may not function properly." },
+          { heading: "7. Policy Changes", body: "We may revise this policy in response to changes in laws or services. Significant changes will be notified on our website." },
+          { heading: "8. Contact", body: "For inquiries regarding the handling of personal information, please contact us through the inquiry form on our website." },
+        ],
+      },
+      terms: {
+        title: "Terms of Use",
+        lastUpdated: "Last updated: January 1, 2025",
+        sections: [
+          { heading: "Article 1 (Application)", body: "These Terms of Use apply to all services provided by DHP Urban Development Co., Ltd. (hereinafter \"the Company\"). By using our services, you agree to these terms." },
+          { heading: "Article 2 (Definitions)", body: "\"Services\" refers to the website operated by the Company and all related services. \"User\" refers to all persons who use the Company's services." },
+          { heading: "Article 3 (Prohibited Actions)", body: "Users shall not engage in the following: violations of laws, infringement of the Company's or third parties' rights, providing false information, obstructing service operations, or any other actions deemed inappropriate by the Company." },
+          { heading: "Article 4 (Intellectual Property)", body: "All intellectual property rights to content on our site (text, images, logos, design, etc.) belong to the Company or its rightful owners. Unauthorized reproduction, reprinting, or modification is prohibited." },
+          { heading: "Article 5 (Disclaimer)", body: "The Company does not guarantee the accuracy, completeness, or usefulness of service content. The Company is not liable for damages arising from the use of services, except in cases of intentional misconduct or gross negligence." },
+          { heading: "Article 6 (Service Changes)", body: "The Company may change, temporarily suspend, or terminate services without prior notice. The Company is not liable for any damages resulting from such actions." },
+          { heading: "Article 7 (Governing Law & Jurisdiction)", body: "These terms shall be interpreted in accordance with Japanese law. In the event of a dispute, the Osaka District Court shall serve as the court of exclusive jurisdiction in the first instance." },
+        ],
+      },
+      careers: {
+        title: "Careers",
+        intro: "DHP HOSPITALITY is looking for passionate individuals to shape the future of hospitality with us. Join us in an unprecedented field where healthcare and luxury accommodation converge.",
+        valuesLabel: "Our Values",
+        values: [
+          { title: "Spirit of Challenge", desc: "We welcome those who boldly tackle unprecedented tasks and are motivated to create new value." },
+          { title: "Heart of Hospitality", desc: "Those who are passionate about delivering experiences that exceed expectations, attuned to each guest." },
+          { title: "Teamwork", desc: "Those who collaborate with members of diverse backgrounds to achieve the best results as a team." },
+        ],
+        positionsLabel: "Open Positions",
+        positions: [
+          { title: "Hotel Development Manager", type: "Full-time / Osaka", desc: "A position that drives new hotel projects from planning and development through to opening." },
+          { title: "Brand Strategy Specialist", type: "Full-time / Osaka", desc: "Responsible for negotiating partnerships with international hotel brands and managing brand standard compliance." },
+          { title: "Operations General Manager", type: "Full-time / Nara", desc: "A position that manages franchise hotel operations and drives revenue maximization." },
+        ],
+        contactNote: "To apply or inquire, please contact us through our inquiry form or by email.",
       },
     },
     footer: {

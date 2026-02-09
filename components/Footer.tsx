@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useReducedMotion, useInView } from "@/lib/hooks";
 import { useLocale } from "@/lib/locale-context";
+
+const footerRoutes = ["/privacy", "/terms", "/careers"];
 
 export default function Footer() {
   const reducedMotion = useReducedMotion();
@@ -66,17 +69,21 @@ export default function Footer() {
         {/* Links */}
         <div className="flex gap-6">
           {t.footer.links.map((name, i) => (
-            <motion.button
+            <motion.div
               key={name}
-              className="text-xs text-text-muted transition-colors hover:text-gold active:text-gold"
               initial={reducedMotion ? {} : { opacity: 0, y: 8 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4 + i * 0.08, duration: 0.4, ease: "easeOut" }}
               whileHover={reducedMotion ? {} : { y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              {name}
-            </motion.button>
+              <Link
+                href={footerRoutes[i]}
+                className="text-xs text-text-muted transition-colors hover:text-gold active:text-gold"
+              >
+                {name}
+              </Link>
+            </motion.div>
           ))}
         </div>
 
