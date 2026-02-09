@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { useReducedMotion, useInView } from "@/lib/hooks";
 import { useLocale } from "@/lib/locale-context";
 
@@ -30,13 +31,24 @@ export default function Nav() {
         {/* Logo */}
         <motion.a
           href="#"
-          className="relative z-50 text-sm font-bold tracking-[0.15em] text-white"
+          className="relative z-50 flex items-center gap-2.5"
           initial={reduced ? {} : { opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <span className="text-gold">DHP</span>{" "}
-          <span className="text-white/70 font-light">HOSPITALITY</span>
+          <div className="relative h-8 w-8 overflow-hidden rounded-full sm:h-9 sm:w-9">
+            <Image
+              src="/images/photos/photo-6.jpg"
+              alt="DHP HOSPITALITY"
+              fill
+              sizes="36px"
+              className="object-cover"
+            />
+          </div>
+          <div className="text-sm font-bold tracking-[0.15em]">
+            <span className="text-gold">DHP</span>{" "}
+            <span className="text-white/70 font-light">HOSPITALITY</span>
+          </div>
         </motion.a>
 
         <div className="flex items-center gap-3">

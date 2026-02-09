@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useReducedMotion, useInView } from "@/lib/hooks";
 import { useLocale } from "@/lib/locale-context";
 
@@ -29,10 +30,21 @@ export default function Footer() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <p className="text-sm font-bold tracking-[0.15em]">
-            <span className="text-gold">DHP</span>{" "}
-            <span className="text-white/70 font-light">HOSPITALITY</span>
-          </p>
+          <div className="flex items-center gap-2.5">
+            <div className="relative h-10 w-10 overflow-hidden rounded-full">
+              <Image
+                src="/images/photos/photo-6.jpg"
+                alt="DHP HOSPITALITY"
+                fill
+                sizes="40px"
+                className="object-cover"
+              />
+            </div>
+            <p className="text-sm font-bold tracking-[0.15em]">
+              <span className="text-gold">DHP</span>{" "}
+              <span className="text-white/70 font-light">HOSPITALITY</span>
+            </p>
+          </div>
         </motion.div>
 
         <motion.div
