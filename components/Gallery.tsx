@@ -15,7 +15,7 @@ const portfolioImages = [
   { id: 3, title: "L'Artisan カウンター", titleEn: "L'Artisan Counter", src: "/images/photos/photo-20.jpg", alt: "Restaurant counter", width: 800, height: 600 },
   { id: 4, title: "スイートルーム B", titleEn: "Suite Room B", src: "/images/photos/photo-9.jpg", alt: "Suite with gold runners", width: 800, height: 600 },
   { id: 5, title: "シェフの技", titleEn: "Chef's Craft", src: "/images/photos/photo-25.jpg", alt: "Chef plating gourmet dish", width: 800, height: 600 },
-  { id: 6, title: "個室ダイニング", titleEn: "Private Dining", src: "/images/photos/photo-22.jpg", alt: "Private dining room", width: 600, height: 1000 },
+  { id: 6, title: "組子ラウンジ", titleEn: "Kumiko Lounge", src: "/images/photos/photo-7.jpg", alt: "Lounge with kumiko wall", width: 800, height: 600 },
   { id: 7, title: "バスルーム", titleEn: "Bathroom", src: "/images/photos/photo-14.jpg", alt: "Luxury bathroom vanity", width: 800, height: 600 },
   { id: 8, title: "スイートルーム C", titleEn: "Suite Room C", src: "/images/photos/photo-10.jpg", alt: "Suite with striped runners", width: 800, height: 600 },
   { id: 9, title: "和牛カツ", titleEn: "Wagyu Katsu", src: "/images/photos/photo-31.jpg", alt: "Wagyu beef katsu", width: 800, height: 600 },
