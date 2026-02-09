@@ -1,22 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useReducedMotion, useInView } from "@/lib/hooks";
+import { useReducedMotion } from "@/lib/hooks";
 import { useLocale } from "@/lib/locale-context";
 
 export default function Marquee() {
   const reduced = useReducedMotion();
-  const [ref, inView] = useInView(0.1);
   const { t } = useLocale();
 
   return (
-    <motion.section
-      ref={ref}
-      className="relative overflow-hidden py-10"
-      initial={reduced ? {} : { opacity: 0 }}
-      animate={inView ? { opacity: 1 } : {}}
-      transition={{ duration: 0.8 }}
-    >
+    <section className="relative overflow-hidden py-10">
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-background to-transparent" />
       <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-background to-transparent" />
 
@@ -55,6 +47,6 @@ export default function Marquee() {
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

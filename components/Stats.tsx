@@ -26,7 +26,7 @@ function AnimatedCounter({
       return;
     }
 
-    const duration = 1500;
+    const duration = 1200;
     const start = performance.now();
 
     function tick(now: number) {
@@ -34,9 +34,7 @@ function AnimatedCounter({
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.round(eased * value));
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      }
+      if (progress < 1) requestAnimationFrame(tick);
     }
 
     requestAnimationFrame(tick);
@@ -47,7 +45,7 @@ function AnimatedCounter({
 
 export default function Stats() {
   const reducedMotion = useReducedMotion();
-  const [ref, inView] = useInView(0.2);
+  const [ref, inView] = useInView(0.1);
   const { t } = useLocale();
   const stats = t.stats.items;
 
@@ -57,49 +55,27 @@ export default function Stats() {
         <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 animate-morph bg-gold/[0.02] blur-[100px]" />
       </div>
 
-      <div
+      <motion.div
         ref={ref}
         className="relative z-10 grid grid-cols-2 gap-4 px-6 sm:grid-cols-4 sm:gap-6 sm:px-8 md:px-12"
+        initial={reducedMotion ? {} : { opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.3 }}
       >
-        {stats.map((stat, i) => (
-          <motion.div
+        {stats.map((stat) => (
+          <div
             key={stat.label}
             className="relative overflow-hidden rounded-2xl border border-border bg-surface p-5 text-center sm:p-6"
-            initial={
-              reducedMotion
-                ? { opacity: 0 }
-                : { opacity: 0, y: 16, scale: 0.97 }
-            }
-            animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-            transition={{
-              duration: 0.45,
-              delay: i * 0.06,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
           >
-            <motion.div
+            <div
               className="absolute left-0 right-0 top-0 h-[2px]"
-              initial={{ scaleX: 0 }}
-              animate={inView ? { scaleX: 1 } : {}}
-              transition={{
-                duration: 0.6,
-                delay: 0.15 + i * 0.06,
-                ease: [0.25, 0.46, 0.45, 0.94],
-              }}
-              style={{ backgroundColor: stat.accent, transformOrigin: "left" }}
+              style={{ backgroundColor: stat.accent }}
             />
 
-            <motion.p
-              className="text-3xl font-black tracking-tight sm:text-4xl"
-              style={{ color: stat.accent }}
-            >
-              <AnimatedCounter
-                value={stat.value}
-                inView={inView}
-                reducedMotion={reducedMotion}
-              />
+            <p className="text-3xl font-black tracking-tight sm:text-4xl" style={{ color: stat.accent }}>
+              <AnimatedCounter value={stat.value} inView={inView} reducedMotion={reducedMotion} />
               {stat.suffix}
-            </motion.p>
+            </p>
             <p className="mt-1 text-xs font-medium uppercase tracking-wider text-text-muted">
               {stat.label}
             </p>
@@ -108,9 +84,9 @@ export default function Stats() {
               className="absolute -bottom-4 -right-4 h-16 w-16 rounded-full blur-2xl"
               style={{ backgroundColor: `${stat.accent}08` }}
             />
-          </motion.div>
+          </div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

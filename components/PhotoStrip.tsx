@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
-import { useReducedMotion, useInView } from "@/lib/hooks";
+import { useReducedMotion } from "@/lib/hooks";
 
 const stripPhotos = [
   { src: "/images/photos/photo-13.jpg", alt: "Japanese ceramics drawer" },
@@ -19,16 +18,9 @@ const stripPhotos = [
 
 export default function PhotoStrip() {
   const reduced = useReducedMotion();
-  const [ref, inView] = useInView(0.1);
 
   return (
-    <motion.section
-      ref={ref}
-      className="relative overflow-hidden py-8"
-      initial={reduced ? {} : { opacity: 0 }}
-      animate={inView ? { opacity: 1 } : {}}
-      transition={{ duration: 0.8 }}
-    >
+    <section className="relative overflow-hidden py-8">
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-background to-transparent" />
       <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-background to-transparent" />
 
@@ -53,6 +45,6 @@ export default function PhotoStrip() {
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

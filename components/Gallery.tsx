@@ -32,22 +32,23 @@ const portfolioImages = [
 
 function GalleryGrid({ onSelect }: { onSelect: (index: number) => void }) {
   const reducedMotion = useReducedMotion();
-  const [ref, inView] = useInView(0.1);
+  const [ref, inView] = useInView(0.05);
   const { locale } = useLocale();
 
   return (
-    <div ref={ref} className="grid grid-cols-2 gap-3 px-6 sm:gap-4 sm:px-8 md:grid-cols-3 md:px-12">
+    <motion.div
+      ref={ref}
+      className="grid grid-cols-2 gap-3 px-6 sm:gap-4 sm:px-8 md:grid-cols-3 md:px-12"
+      initial={reducedMotion ? {} : { opacity: 0 }}
+      animate={inView ? { opacity: 1 } : {}}
+      transition={{ duration: 0.3 }}
+    >
       {portfolioImages.map((img, i) => (
-        <motion.button
+        <button
           key={img.id}
-          initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 20, scale: 0.95 }}
-          animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-          transition={{ duration: 0.5, delay: Math.min(i * 0.04, 0.4), ease: [0.25, 0.46, 0.45, 0.94] }}
           onClick={() => onSelect(i)}
           className="group relative overflow-hidden rounded-xl bg-surface focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
           style={{ aspectRatio: img.width > img.height ? "4/3" : "3/4" }}
-          whileTap={{ scale: 0.95 }}
-          whileHover={reducedMotion ? {} : { y: -4 }}
         >
           <Image src={img.src} alt={img.alt} fill sizes="(max-width: 640px) 50vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -57,9 +58,9 @@ function GalleryGrid({ onSelect }: { onSelect: (index: number) => void }) {
           <div className="absolute bottom-0 left-0 right-0 translate-y-2 p-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
             <p className="text-xs font-medium text-white sm:text-sm">{locale === "ja" ? img.title : img.titleEn}</p>
           </div>
-        </motion.button>
+        </button>
       ))}
-    </div>
+    </motion.div>
   );
 }
 
@@ -92,7 +93,7 @@ function GalleryModal({ selectedIndex, onClose }: { selectedIndex: number; onClo
   return (
     <motion.div className="fixed inset-0 z-50 flex items-center justify-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: reducedMotion ? 0.01 : 0.3 }}>
       <motion.div className="absolute inset-0 bg-black/90 backdrop-blur-xl" onClick={onClose} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />
-      <motion.button onClick={onClose} className="absolute right-4 top-4 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm" aria-label="Close" initial={reducedMotion ? {} : { scale: 0, rotate: -90 }} animate={{ scale: 1, rotate: 0 }} transition={{ delay: 0.2, type: "spring", stiffness: 300, damping: 20 }}>
+      <motion.button onClick={onClose} className="absolute right-4 top-4 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm" aria-label="Close" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2 }}>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5L15 15M15 5L5 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
       </motion.button>
       <div ref={constraintsRef} className="relative z-10 w-full max-w-lg px-6">
@@ -106,10 +107,10 @@ function GalleryModal({ selectedIndex, onClose }: { selectedIndex: number; onClo
             <Image src={img.src} alt={img.alt} fill sizes="(max-width: 640px) 100vw, 512px" className="pointer-events-none object-cover" priority />
           </motion.div>
         </AnimatePresence>
-        <motion.div className="mt-4 flex items-center justify-center gap-1.5" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
+        <motion.div className="mt-4 flex items-center justify-center gap-1.5" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2 }}>
           {portfolioImages.map((_, i) => (<motion.div key={i} className="h-1.5 rounded-full bg-white" animate={{ width: i === current ? 24 : 6, opacity: i === current ? 1 : 0.3 }} transition={{ duration: 0.3 }} />))}
         </motion.div>
-        <motion.div className="mt-3 flex items-center justify-between" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+        <motion.div className="mt-3 flex items-center justify-between" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2 }}>
           <div>
             <p className="text-base font-semibold text-white">{locale === "ja" ? img.title : img.titleEn}</p>
             <p className="text-xs text-white/50">{current + 1} / {total}</p>

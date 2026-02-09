@@ -1,9 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useReducedMotion, useInView } from "@/lib/hooks";
 import { useLocale } from "@/lib/locale-context";
 import SectionHeading from "./SectionHeading";
 
@@ -26,18 +24,9 @@ function PillarCard({
   href: string;
   detailLabel: string;
 }) {
-  const reducedMotion = useReducedMotion();
-  const [ref, inView] = useInView(0.15);
-
   return (
     <Link href={href}>
-      <motion.div
-        ref={ref}
-        className="relative overflow-hidden rounded-2xl border border-border bg-surface-elevated transition-colors hover:border-gold/30"
-        initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5, delay: 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
-      >
+      <div className="relative overflow-hidden rounded-2xl border border-border bg-surface-elevated transition-colors hover:border-gold/30">
         {/* Top accent bar */}
         <div className="h-[2px]" style={{ backgroundColor: item.accent }} />
 
@@ -81,7 +70,7 @@ function PillarCard({
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </span>
         </div>
-      </motion.div>
+      </div>
     </Link>
   );
 }
