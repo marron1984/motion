@@ -14,7 +14,7 @@ export default function Footer() {
   const { t } = useLocale();
 
   return (
-    <footer ref={ref} className="relative px-6 py-10 sm:px-8">
+    <footer id="company" ref={ref} className="relative px-6 py-10 sm:px-8">
       {/* Animated top border glow */}
       <div className="absolute left-6 right-6 top-0 h-[1px] overflow-hidden sm:left-8 sm:right-8">
         <motion.div

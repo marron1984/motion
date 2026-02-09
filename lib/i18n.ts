@@ -7,6 +7,10 @@ export interface Translations {
     medical: string;
     portfolio: string;
     contact: string;
+    privacy: string;
+    terms: string;
+    careers: string;
+    companyInfo: string;
   };
   hero: {
     catch: string;
@@ -148,6 +152,10 @@ export const translations: Record<Locale, Translations> = {
       medical: "医療パッケージ",
       portfolio: "実績",
       contact: "お問い合わせ",
+      privacy: "プライバシーポリシー",
+      terms: "利用規約",
+      careers: "採用情報",
+      companyInfo: "会社概要",
     },
     hero: {
       catch: "信頼と革新が紡ぐ、",
@@ -357,6 +365,10 @@ export const translations: Record<Locale, Translations> = {
       medical: "Medical",
       portfolio: "Portfolio",
       contact: "Contact",
+      privacy: "Privacy Policy",
+      terms: "Terms of Use",
+      careers: "Careers",
+      companyInfo: "Company Info",
     },
     hero: {
       catch: "Trust & Innovation:",

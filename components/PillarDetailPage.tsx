@@ -107,7 +107,7 @@ export default function PillarDetailPage({
 }
 
 function PillarContent({ pillar, photo, accent }: { pillar: "hotel" | "brand" | "franchise"; photo: string; accent: string }) {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const reduced = useReducedMotion();
   const [heroRef, heroInView] = useInView(0);
   const d = t.pillarDetails[pillar];
@@ -225,6 +225,27 @@ function PillarContent({ pillar, photo, accent }: { pillar: "hotel" | "brand" | 
           </Link>
         </div>
       </section>
+
+      {/* Footer with cross-links */}
+      <footer className="border-t border-border px-6 py-8">
+        <div className="mx-auto flex max-w-2xl flex-col items-center gap-4">
+          <div className="flex flex-wrap justify-center gap-5">
+            <Link href="/privacy" className="text-xs text-text-muted transition-colors hover:text-gold">
+              {locale === "ja" ? "プライバシーポリシー" : "Privacy Policy"}
+            </Link>
+            <Link href="/terms" className="text-xs text-text-muted transition-colors hover:text-gold">
+              {locale === "ja" ? "利用規約" : "Terms of Use"}
+            </Link>
+            <Link href="/careers" className="text-xs text-text-muted transition-colors hover:text-gold">
+              {locale === "ja" ? "採用情報" : "Careers"}
+            </Link>
+          </div>
+          <Link href="/" className="inline-flex items-center gap-2 text-xs text-text-muted transition-colors hover:text-gold">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            {locale === "ja" ? "トップに戻る" : "Back to Top"}
+          </Link>
+        </div>
+      </footer>
     </main>
   );
 }
