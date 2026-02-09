@@ -16,7 +16,7 @@ export default function SectionHeading({
   description,
 }: SectionHeadingProps) {
   const reducedMotion = useReducedMotion();
-  const [ref, inView] = useInView({ threshold: 0.3 });
+  const [ref, inView] = useInView(0.3);
   const variants = reducedMotion ? reducedMotionVariants : fadeUp;
 
   return (

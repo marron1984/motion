@@ -7,7 +7,7 @@ import { fadeUp, staggerContainer, reducedMotionVariants } from "@/lib/motion";
 
 export default function CTA() {
   const reducedMotion = useReducedMotion();
-  const [ref, inView] = useInView({ threshold: 0.2 });
+  const [ref, inView] = useInView(0.2);
   const [submitted, setSubmitted] = useState(false);
   const variants = reducedMotion ? reducedMotionVariants : fadeUp;
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Lenis from "lenis";
 import { useReducedMotion } from "@/lib/hooks";
 
 export default function SmoothScroll({
@@ -10,28 +9,50 @@ export default function SmoothScroll({
   children: React.ReactNode;
 }) {
   const reducedMotion = useReducedMotion();
-  const lenisRef = useRef<Lenis | null>(null);
+  const lenisRef = useRef<unknown>(null);
 
   useEffect(() => {
     if (reducedMotion) return;
 
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 1.5,
-    });
+    let cancelled = false;
+    let rafHandle: number;
 
-    lenisRef.current = lenis;
+    async function initLenis() {
+      try {
+        const LenisModule = await import("lenis");
+        const Lenis = LenisModule.default;
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+        if (cancelled) return;
+
+        const lenis = new Lenis({
+          duration: 1.2,
+          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          touchMultiplier: 1.5,
+        });
+
+        lenisRef.current = lenis;
+
+        function raf(time: number) {
+          lenis.raf(time);
+          if (!cancelled) {
+            rafHandle = requestAnimationFrame(raf);
+          }
+        }
+
+        rafHandle = requestAnimationFrame(raf);
+      } catch {
+        // Lenis failed to load - graceful degradation, native scroll works fine
+      }
     }
 
-    requestAnimationFrame(raf);
+    initLenis();
 
     return () => {
-      lenis.destroy();
+      cancelled = true;
+      if (rafHandle) cancelAnimationFrame(rafHandle);
+      if (lenisRef.current && typeof (lenisRef.current as { destroy?: () => void }).destroy === "function") {
+        (lenisRef.current as { destroy: () => void }).destroy();
+      }
       lenisRef.current = null;
     };
   }, [reducedMotion]);

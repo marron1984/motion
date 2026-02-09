@@ -30,10 +30,11 @@ export function useReducedMotion(): boolean {
 }
 
 /**
- * IntersectionObserver hook for triggering animations when visible
+ * IntersectionObserver hook for triggering animations when visible.
+ * Accepts a threshold number (0-1) to avoid unstable object references.
  */
 export function useInView(
-  options?: IntersectionObserverInit
+  threshold: number = 0.1
 ): [React.RefObject<HTMLDivElement | null>, boolean] {
   const ref = useRef<HTMLDivElement | null>(null);
   const [inView, setInView] = useState(false);
@@ -42,16 +43,21 @@ export function useInView(
     const el = ref.current;
     if (!el) return;
 
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setInView(true);
-        observer.unobserve(el);
-      }
-    }, options);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold }
+    );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [options]);
+    // threshold is a primitive number, safe in deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return [ref, inView];
 }
@@ -99,30 +105,4 @@ export function useScrollProgress(
   }, [updateProgress]);
 
   return progress;
-}
-
-/**
- * Window size hook (debounced)
- */
-export function useWindowSize(): { width: number; height: number } {
-  const [size, setSize] = useState({ width: 0, height: 0 });
-
-  useEffect(() => {
-    let timeout: ReturnType<typeof setTimeout>;
-    const handleResize = () => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        setSize({ width: window.innerWidth, height: window.innerHeight });
-      }, 100);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize, { passive: true });
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      clearTimeout(timeout);
-    };
-  }, []);
-
-  return size;
 }

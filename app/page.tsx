@@ -5,18 +5,21 @@ import Stories from "@/components/Stories";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 export default function Home() {
   return (
-    <SmoothScroll>
-      <main className="min-h-screen bg-background">
-        <Hero />
-        <Features />
-        <Gallery />
-        <Stories />
-        <CTA />
-        <Footer />
-      </main>
-    </SmoothScroll>
+    <ErrorBoundary>
+      <SmoothScroll>
+        <main className="min-h-screen bg-background">
+          <Hero />
+          <Features />
+          <Gallery />
+          <Stories />
+          <CTA />
+          <Footer />
+        </main>
+      </SmoothScroll>
+    </ErrorBoundary>
   );
 }

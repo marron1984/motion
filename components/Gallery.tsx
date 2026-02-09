@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
-import { motion, AnimatePresence, PanInfo } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import type { PanInfo } from "framer-motion";
 import Image from "next/image";
 import { galleryImages } from "@/lib/data";
 import { useReducedMotion, useInView } from "@/lib/hooks";
@@ -14,7 +15,7 @@ function GalleryGrid({
   onSelect: (index: number) => void;
 }) {
   const reducedMotion = useReducedMotion();
-  const [ref, inView] = useInView({ threshold: 0.1 });
+  const [ref, inView] = useInView(0.1);
   const variants = reducedMotion ? reducedMotionVariants : scaleUp;
 
   return (
