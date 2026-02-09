@@ -1,39 +1,17 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
 import { useReducedMotion } from "@/lib/hooks";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 
 export default function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.8], [0.4, 0.8]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
-
   return (
-    <section
-      ref={ref}
-      className="relative h-[100svh] min-h-[600px] w-full overflow-hidden"
-    >
-      {/* Background image with parallax */}
-      <motion.div
-        className="absolute inset-0"
-        style={
-          reducedMotion
-            ? {}
-            : { y: imageY, scale: imageScale }
-        }
-      >
+    <section className="relative h-[100svh] min-h-[600px] w-full overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
         <Image
           src="/images/hero.svg"
           alt="Hero background"
@@ -42,18 +20,14 @@ export default function Hero() {
           sizes="100vw"
           className="object-cover"
         />
-      </motion.div>
+      </div>
 
       {/* Overlay gradient */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80"
-        style={reducedMotion ? {} : { opacity: overlayOpacity }}
-      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80" />
 
       {/* Content */}
       <motion.div
         className="relative z-10 flex h-full flex-col items-start justify-end px-6 pb-20 sm:px-8 md:px-12 lg:px-20"
-        style={reducedMotion ? {} : { y: textY }}
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
@@ -92,19 +66,25 @@ export default function Hero() {
       </motion.div>
 
       {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2"
-        animate={reducedMotion ? {} : { y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div className="h-10 w-6 rounded-full border-2 border-white/30 p-1">
-          <motion.div
-            className="h-2 w-full rounded-full bg-white/60"
-            animate={reducedMotion ? {} : { y: [0, 16, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
-      </motion.div>
+      {!reducedMotion && (
+        <motion.div
+          className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <div className="h-10 w-6 rounded-full border-2 border-white/30 p-1">
+            <motion.div
+              className="h-2 w-full rounded-full bg-white/60"
+              animate={{ y: [0, 16, 0] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 }

@@ -9,15 +9,27 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 
 export default function Home() {
   return (
-    <ErrorBoundary>
+    <ErrorBoundary name="Root">
       <SmoothScroll>
         <main className="min-h-screen bg-background">
-          <Hero />
-          <Features />
-          <Gallery />
-          <Stories />
-          <CTA />
-          <Footer />
+          <ErrorBoundary name="Hero">
+            <Hero />
+          </ErrorBoundary>
+          <ErrorBoundary name="Features">
+            <Features />
+          </ErrorBoundary>
+          <ErrorBoundary name="Gallery">
+            <Gallery />
+          </ErrorBoundary>
+          <ErrorBoundary name="Stories">
+            <Stories />
+          </ErrorBoundary>
+          <ErrorBoundary name="CTA">
+            <CTA />
+          </ErrorBoundary>
+          <ErrorBoundary name="Footer">
+            <Footer />
+          </ErrorBoundary>
         </main>
       </SmoothScroll>
     </ErrorBoundary>
