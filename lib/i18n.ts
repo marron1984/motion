@@ -31,6 +31,7 @@ export interface Translations {
     label: string;
     title: string;
     description: string;
+    detailLabel: string;
     items: {
       id: number;
       num: string;
@@ -78,6 +79,34 @@ export interface Translations {
     successMessage: string;
     sendAnother: string;
   };
+  pillarDetails: {
+    back: string;
+    contactCta: string;
+    hotel: {
+      heroTitle: string;
+      heroSub: string;
+      intro: string;
+      services: { title: string; desc: string }[];
+      process: { step: string; title: string; desc: string }[];
+      processLabel: string;
+    };
+    brand: {
+      heroTitle: string;
+      heroSub: string;
+      intro: string;
+      services: { title: string; desc: string }[];
+      strengths: { title: string; desc: string }[];
+      strengthsLabel: string;
+    };
+    franchise: {
+      heroTitle: string;
+      heroSub: string;
+      intro: string;
+      services: { title: string; desc: string }[];
+      features: { title: string; desc: string }[];
+      featuresLabel: string;
+    };
+  };
   footer: {
     company: string;
     established: string;
@@ -122,6 +151,7 @@ export const translations: Record<Locale, Translations> = {
       label: "Business",
       title: "三つの事業の柱",
       description: "医療・介護で培った経験を、ホスピタリティの世界で昇華させる。",
+      detailLabel: "詳しく見る",
       items: [
         {
           id: 1,
@@ -186,6 +216,62 @@ export const translations: Record<Locale, Translations> = {
       successMessage: "24時間以内にご連絡いたします。",
       sendAnother: "もう一度送信",
     },
+    pillarDetails: {
+      back: "トップへ戻る",
+      contactCta: "この事業についてのお問い合わせ",
+      hotel: {
+        heroTitle: "ホテル開発事業",
+        heroSub: "その土地の物語を紡ぐ、唯一無二の空間。",
+        intro: "DHP HOSPITALITYのホテル開発事業は、土地の選定からコンセプト策定、設計・施工管理、そしてオープン後の運営支援まで、一気通貫の体制でラグジュアリーホテルを創造します。私たちは「その地域でしか味わえない体験」を最高級の形で提供することを使命としています。",
+        services: [
+          { title: "用地選定・マーケットリサーチ", desc: "独自のデータ分析と現地調査により、観光需要・インバウンド動向・地域ポテンシャルを総合的に評価。最適な開発候補地を選定します。" },
+          { title: "コンセプト策定・企画", desc: "地域の歴史・文化・自然を深くリサーチし、その土地ならではのストーリーを紡ぐコンセプトを策定。競合との差別化を図ります。" },
+          { title: "設計・施工管理", desc: "国内外の一流建築家やデザイナーとのコラボレーションにより、機能性と美しさを両立した空間を実現。品質管理を徹底します。" },
+          { title: "開業準備・運営支援", desc: "スタッフ採用・研修、オペレーション構築、マーケティング戦略まで、開業前後のトータルサポートを提供します。" },
+        ],
+        process: [
+          { step: "01", title: "調査・分析", desc: "市場調査、用地デューデリジェンス" },
+          { step: "02", title: "企画・設計", desc: "コンセプト策定、基本設計・実施設計" },
+          { step: "03", title: "施工・管理", desc: "建設工程管理、品質チェック" },
+          { step: "04", title: "開業・運営", desc: "プレオープン、運営最適化" },
+        ],
+        processLabel: "開発プロセス",
+      },
+      brand: {
+        heroTitle: "ブランド誘致事業",
+        heroSub: "世界と日本をつなぐ、最適なマッチング。",
+        intro: "国内外の一流ホテルブランドとの強固なネットワークを活かし、プロジェクトの価値を最大化するブランドパートナーシップをコンサルティングします。オーナー様の投資目的とブランドの戦略的方向性を的確にマッチングし、Win-Winの関係構築を実現します。",
+        services: [
+          { title: "ブランド選定コンサルティング", desc: "プロジェクトの立地、規模、ターゲット市場を分析し、最適なホテルブランドを選定。複数ブランドとの比較検討をサポートします。" },
+          { title: "契約交渉・条件調整", desc: "フランチャイズ契約、マネジメント契約の交渉を代行。オーナー様に最も有利な条件を引き出します。" },
+          { title: "ブランド基準適合サポート", desc: "選定ブランドの設計基準、サービス基準への適合を支援。スムーズなブランド導入を実現します。" },
+          { title: "オープン後のリレーション管理", desc: "ブランド本部とオーナー様の良好な関係維持をサポート。定期的なパフォーマンスレビューも実施します。" },
+        ],
+        strengths: [
+          { title: "グローバルネットワーク", desc: "世界の主要ホテルブランド12社以上との直接パートナーシップ" },
+          { title: "50+の実績", desc: "国内外50以上のプロジェクトで培った豊富な交渉経験" },
+          { title: "ワンストップ対応", desc: "ブランド選定から契約締結、運営開始まで一貫してサポート" },
+        ],
+        strengthsLabel: "私たちの強み",
+      },
+      franchise: {
+        heroTitle: "FC運営管理事業",
+        heroSub: "持続可能な収益と、最高の顧客体験。",
+        intro: "ホテル・飲食施設のフランチャイズ運営管理において、蓄積された運営ノウハウと独自のオペレーション基準を駆使し、オーナー様の収益最大化とゲストへの最高級のサービス提供を両立させます。医療・介護分野で培った「人を支える」精神が、私たちのホスピタリティの根幹です。",
+        services: [
+          { title: "オペレーション管理", desc: "フロント、ハウスキーピング、F&B、施設管理に至るまで、全部門のオペレーションを統括。日々のKPI管理により最高のサービス品質を維持します。" },
+          { title: "人材育成・研修", desc: "医療・介護の現場で培った「ホスピタリティの本質」を基盤とした独自の研修プログラム。スタッフ一人ひとりの成長を支援します。" },
+          { title: "収益管理・レベニューマネジメント", desc: "最先端のレベニューマネジメントシステムを導入し、ADR・RevPAR・稼働率の最適化を図ります。" },
+          { title: "ブランドコンプライアンス", desc: "フランチャイズ契約に基づくブランド基準の遵守を徹底。定期監査と改善提案により、ブランド評価の向上を実現します。" },
+        ],
+        features: [
+          { title: "5★ サービス評価", desc: "全施設で最高評価を獲得" },
+          { title: "独自研修プログラム", desc: "医療ホスピタリティ×ホテルサービス" },
+          { title: "24時間サポート体制", desc: "オーナー様への迅速な対応" },
+        ],
+        featuresLabel: "運営の特徴",
+      },
+    },
     footer: {
       company: "株式会社 DHP Urban Development",
       established: "設立：2012年9月",
@@ -228,6 +314,7 @@ export const translations: Record<Locale, Translations> = {
       label: "Business",
       title: "Our Business Pillars",
       description: "Elevating the experience cultivated in healthcare into the world of hospitality.",
+      detailLabel: "Learn More",
       items: [
         {
           id: 1,
@@ -291,6 +378,62 @@ export const translations: Record<Locale, Translations> = {
       successTitle: "Message Sent!",
       successMessage: "We will get back to you within 24 hours.",
       sendAnother: "Send Another",
+    },
+    pillarDetails: {
+      back: "Back to Top",
+      contactCta: "Inquire About This Service",
+      hotel: {
+        heroTitle: "Hotel Development",
+        heroSub: "Weaving the story of each locale into one-of-a-kind spaces.",
+        intro: "DHP HOSPITALITY's Hotel Development division creates luxury hotels through an integrated approach — from site selection, concept development, and design management to post-opening operational support. Our mission is to deliver experiences unique to each locale in the most luxurious form possible.",
+        services: [
+          { title: "Site Selection & Market Research", desc: "Comprehensive evaluation of tourism demand, inbound trends, and regional potential through proprietary data analysis and on-site surveys." },
+          { title: "Concept Development & Planning", desc: "Deep research into local history, culture, and nature to craft concepts that tell the unique story of each location." },
+          { title: "Design & Construction Management", desc: "Collaboration with world-class architects and designers to realize spaces that balance functionality and beauty." },
+          { title: "Pre-Opening & Operational Support", desc: "Total support from staff recruitment and training to operations setup and marketing strategy." },
+        ],
+        process: [
+          { step: "01", title: "Research & Analysis", desc: "Market research, site due diligence" },
+          { step: "02", title: "Planning & Design", desc: "Concept development, schematic & detailed design" },
+          { step: "03", title: "Construction", desc: "Construction management, quality assurance" },
+          { step: "04", title: "Launch & Operations", desc: "Pre-opening, operational optimization" },
+        ],
+        processLabel: "Development Process",
+      },
+      brand: {
+        heroTitle: "Brand Affiliation",
+        heroSub: "The optimal match connecting the world and Japan.",
+        intro: "Leveraging our robust network with premier hotel brands worldwide, we consult on brand partnerships that maximize project value. We precisely match owners' investment objectives with brands' strategic directions to create win-win relationships.",
+        services: [
+          { title: "Brand Selection Consulting", desc: "Analyzing project location, scale, and target market to select the optimal hotel brand. We support comparative evaluation across multiple brands." },
+          { title: "Contract Negotiation", desc: "Negotiating franchise and management agreements on behalf of owners to secure the most favorable terms." },
+          { title: "Brand Standards Compliance", desc: "Supporting adaptation to selected brand design and service standards for smooth brand implementation." },
+          { title: "Post-Opening Relationship Management", desc: "Maintaining positive relationships between brand headquarters and owners with regular performance reviews." },
+        ],
+        strengths: [
+          { title: "Global Network", desc: "Direct partnerships with 12+ major hotel brands worldwide" },
+          { title: "50+ Track Record", desc: "Extensive negotiation experience across 50+ domestic and international projects" },
+          { title: "One-Stop Service", desc: "Consistent support from brand selection through contract execution to launch" },
+        ],
+        strengthsLabel: "Our Strengths",
+      },
+      franchise: {
+        heroTitle: "Franchise Management",
+        heroSub: "Sustainable revenue and the ultimate guest experience.",
+        intro: "In franchise operations management for hotels and dining establishments, we leverage accumulated operational know-how and proprietary standards to maximize owner revenue while delivering the highest level of service to guests. The spirit of 'supporting people,' cultivated in healthcare, is the foundation of our hospitality.",
+        services: [
+          { title: "Operations Management", desc: "Overseeing all departments from front desk and housekeeping to F&B and facility management. Daily KPI management ensures the highest service quality." },
+          { title: "Talent Development & Training", desc: "Proprietary training programs built on the essence of hospitality cultivated in healthcare. Supporting the growth of every team member." },
+          { title: "Revenue Management", desc: "Implementing cutting-edge revenue management systems to optimize ADR, RevPAR, and occupancy rates." },
+          { title: "Brand Compliance", desc: "Rigorous adherence to franchise brand standards through regular audits and improvement recommendations." },
+        ],
+        features: [
+          { title: "5★ Service Rating", desc: "Top ratings across all properties" },
+          { title: "Proprietary Training", desc: "Medical hospitality × hotel service" },
+          { title: "24/7 Support", desc: "Rapid response for all owners" },
+        ],
+        featuresLabel: "Management Features",
+      },
     },
     footer: {
       company: "DHP Urban Development Co., Ltd.",
