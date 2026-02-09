@@ -1,51 +1,86 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#020c1b"/>
-      <stop offset="40%" stop-color="#0a1628"/>
-      <stop offset="70%" stop-color="#0c2340"/>
-      <stop offset="100%" stop-color="#0e3158"/>
+      <stop offset="0%" stop-color="#0a0a08"/>
+      <stop offset="60%" stop-color="#131210"/>
+      <stop offset="100%" stop-color="#0a0a08"/>
     </linearGradient>
-    <radialGradient id="moonlight" cx="70%" cy="20%" r="35%">
-      <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#93c5fd" stop-opacity="0"/>
+    <radialGradient id="skyGlow" cx="50%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0a0a08" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="wave1" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1e40af" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#1e3a5f" stop-opacity="0.2"/>
-    </linearGradient>
-    <linearGradient id="wave2" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#0c2340" stop-opacity="0.3"/>
-    </linearGradient>
-    <linearGradient id="wave3" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#172554" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#0a1628" stop-opacity="0.5"/>
+    <linearGradient id="toriiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#c9a96e" stop-opacity="0.3"/>
     </linearGradient>
   </defs>
   <rect width="800" height="600" fill="url(#bg)"/>
-  <rect width="800" height="600" fill="url(#moonlight)"/>
-  <!-- Wave layer 1 (far) -->
-  <path d="M0 350 Q100 320 200 350 Q300 380 400 340 Q500 300 600 340 Q700 380 800 350 L800 600 L0 600 Z" fill="url(#wave1)"/>
-  <!-- Wave layer 2 (mid) -->
-  <path d="M0 400 Q80 370 160 400 Q240 430 320 390 Q400 350 480 390 Q560 430 640 400 Q720 370 800 400 L800 600 L0 600 Z" fill="url(#wave2)"/>
-  <!-- Wave layer 3 (close) -->
-  <path d="M0 450 Q100 430 200 460 Q300 490 400 450 Q500 410 600 450 Q700 490 800 460 L800 600 L0 600 Z" fill="url(#wave3)"/>
-  <!-- Foam highlights -->
-  <path d="M0 450 Q100 430 200 460 Q300 490 400 450 Q500 410 600 450 Q700 490 800 460" fill="none" stroke="#93c5fd" stroke-opacity="0.08" stroke-width="1.5"/>
-  <path d="M0 400 Q80 370 160 400 Q240 430 320 390 Q400 350 480 390 Q560 430 640 400 Q720 370 800 400" fill="none" stroke="#93c5fd" stroke-opacity="0.06" stroke-width="1"/>
-  <!-- Deep water -->
-  <rect x="0" y="500" width="800" height="100" fill="#050e1a" fill-opacity="0.5"/>
-  <!-- Moon reflection shimmer -->
-  <ellipse cx="560" cy="380" rx="40" ry="3" fill="#93c5fd" fill-opacity="0.06"/>
-  <ellipse cx="555" cy="420" rx="25" ry="2" fill="#93c5fd" fill-opacity="0.05"/>
-  <ellipse cx="565" cy="460" rx="15" ry="2" fill="#93c5fd" fill-opacity="0.04"/>
-  <!-- Stars -->
-  <circle cx="120" cy="60" r="1.5" fill="#dbeafe" fill-opacity="0.5"/>
-  <circle cx="300" cy="100" r="1" fill="#dbeafe" fill-opacity="0.4"/>
-  <circle cx="450" cy="50" r="1.5" fill="#dbeafe" fill-opacity="0.3"/>
-  <circle cx="650" cy="80" r="1" fill="#dbeafe" fill-opacity="0.5"/>
-  <circle cx="550" cy="130" r="1" fill="#dbeafe" fill-opacity="0.3"/>
-  <circle cx="200" cy="160" r="1.5" fill="#dbeafe" fill-opacity="0.25"/>
-  <circle cx="720" cy="150" r="1" fill="#dbeafe" fill-opacity="0.35"/>
+  <rect width="800" height="600" fill="url(#skyGlow)"/>
+  <!-- Ground -->
+  <line x1="50" y1="480" x2="750" y2="480" stroke="#c9a96e" stroke-width="0.5" opacity="0.2"/>
+  <!-- Steps leading to torii -->
+  <g fill="none" stroke="#c9a96e" stroke-width="0.5" opacity="0.15">
+    <line x1="300" y1="480" x2="500" y2="480"/>
+    <line x1="310" y1="490" x2="490" y2="490"/>
+    <line x1="320" y1="500" x2="480" y2="500"/>
+    <line x1="330" y1="510" x2="470" y2="510"/>
+    <line x1="340" y1="520" x2="460" y2="520"/>
+  </g>
+  <!-- Torii gate - main structure -->
+  <g stroke="#c9a96e" fill="none" opacity="0.55" stroke-width="2.5" stroke-linecap="round">
+    <!-- Left pillar -->
+    <line x1="310" y1="180" x2="310" y2="480"/>
+    <!-- Right pillar -->
+    <line x1="490" y1="180" x2="490" y2="480"/>
+    <!-- Top beam (kasagi) - curved -->
+    <path d="M270,180 Q400,160 530,180" stroke-width="3.5"/>
+    <!-- Secondary beam (nuki) -->
+    <line x1="290" y1="220" x2="510" y2="220" stroke-width="2"/>
+    <!-- Top decoration (shimaki) -->
+    <path d="M275,185 Q400,168 525,185" stroke-width="1.5"/>
+  </g>
+  <!-- Second torii in background (smaller, more transparent) -->
+  <g stroke="#c9a96e" fill="none" opacity="0.2" stroke-width="1.5" stroke-linecap="round" transform="translate(0,-30) scale(0.7)" transform-origin="400 400">
+    <line x1="330" y1="200" x2="330" y2="480"/>
+    <line x1="470" y1="200" x2="470" y2="480"/>
+    <path d="M300,200 Q400,185 500,200" stroke-width="2.5"/>
+    <line x1="315" y1="230" x2="485" y2="230" stroke-width="1.5"/>
+  </g>
+  <!-- Third torii even further back -->
+  <g stroke="#c9a96e" fill="none" opacity="0.1" stroke-width="1" stroke-linecap="round" transform="translate(0,-50) scale(0.5)" transform-origin="400 400">
+    <line x1="345" y1="210" x2="345" y2="480"/>
+    <line x1="455" y1="210" x2="455" y2="480"/>
+    <path d="M320,210 Q400,198 480,210" stroke-width="2"/>
+    <line x1="335" y1="240" x2="465" y2="240"/>
+  </g>
+  <!-- Path/stone walkway dots -->
+  <g fill="#c9a96e" opacity="0.12">
+    <ellipse cx="400" cy="530" rx="40" ry="4"/>
+    <ellipse cx="400" cy="545" rx="35" ry="3"/>
+    <ellipse cx="400" cy="558" rx="30" ry="3"/>
+    <ellipse cx="400" cy="570" rx="25" ry="2"/>
+  </g>
+  <!-- Trees silhouettes on sides -->
+  <g fill="#c9a96e" opacity="0.05">
+    <circle cx="120" cy="300" r="80"/>
+    <circle cx="100" cy="350" r="60"/>
+    <circle cx="160" cy="340" r="50"/>
+    <circle cx="680" cy="320" r="70"/>
+    <circle cx="700" cy="360" r="55"/>
+    <circle cx="650" cy="350" r="50"/>
+  </g>
+  <!-- Lantern left -->
+  <g stroke="#c9a96e" stroke-width="0.6" fill="none" opacity="0.25" transform="translate(220,380)">
+    <rect x="-5" y="0" width="10" height="40"/>
+    <rect x="-10" y="-10" width="20" height="12" rx="2"/>
+    <polygon points="0,-20 -12,-10 12,-10"/>
+    <rect x="-8" y="40" width="16" height="4"/>
+  </g>
+  <!-- Lantern right -->
+  <g stroke="#c9a96e" stroke-width="0.6" fill="none" opacity="0.25" transform="translate(580,380)">
+    <rect x="-5" y="0" width="10" height="40"/>
+    <rect x="-10" y="-10" width="20" height="12" rx="2"/>
+    <polygon points="0,-20 -12,-10 12,-10"/>
+    <rect x="-8" y="40" width="16" height="4"/>
+  </g>
 </svg>

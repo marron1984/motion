@@ -1,40 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#0a1a14"/>
-      <stop offset="40%" stop-color="#132e1f"/>
-      <stop offset="70%" stop-color="#1a3a28"/>
-      <stop offset="100%" stop-color="#0d2818"/>
+      <stop offset="0%" stop-color="#0a0a08"/>
+      <stop offset="100%" stop-color="#131210"/>
     </linearGradient>
-    <linearGradient id="mist" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#6b8f7b" stop-opacity="0.05"/>
-      <stop offset="50%" stop-color="#8aaa98" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#6b8f7b" stop-opacity="0.08"/>
-    </linearGradient>
-    <radialGradient id="mistglow" cx="50%" cy="60%" r="40%">
-      <stop offset="0%" stop-color="#8aaa98" stop-opacity="0.1"/>
-      <stop offset="100%" stop-color="#8aaa98" stop-opacity="0"/>
+    <radialGradient id="moonGlow" cx="75%" cy="20%" r="20%">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#0a0a08" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="800" height="600" fill="url(#bg)"/>
-  <rect width="800" height="600" fill="url(#mist)"/>
-  <rect width="800" height="600" fill="url(#mistglow)"/>
-  <!-- Far tree layer -->
-  <path d="M0 420 L30 420 L45 320 L55 340 L65 280 L75 310 L85 260 L95 300 L105 340 L120 420 L150 420 L165 330 L180 280 L190 310 L200 250 L210 290 L225 340 L240 420 L280 420 L295 340 L305 290 L315 320 L325 260 L335 300 L345 350 L360 420 L400 420 L420 350 L430 300 L440 260 L450 230 L460 260 L470 300 L480 330 L495 420 L530 420 L545 340 L555 300 L565 270 L575 300 L585 340 L600 420 L640 420 L655 350 L665 310 L675 270 L685 310 L700 360 L720 420 L760 420 L770 360 L780 320 L790 350 L800 420 Z" fill="#0f2318" fill-opacity="0.5"/>
-  <!-- Mid tree layer -->
-  <path d="M0 480 L20 480 L30 400 L40 430 L50 370 L60 350 L70 380 L80 420 L95 480 L130 480 L140 410 L150 380 L160 340 L170 310 L180 340 L190 380 L200 420 L215 480 L260 480 L275 420 L285 380 L295 340 L305 300 L315 340 L325 370 L340 420 L355 480 L400 480 L415 410 L425 370 L435 330 L445 360 L455 400 L470 480 L510 480 L520 420 L530 380 L540 350 L550 320 L560 350 L570 390 L585 480 L620 480 L635 420 L645 380 L655 340 L665 370 L680 420 L695 480 L740 480 L755 430 L765 390 L775 360 L785 390 L795 430 L800 480 Z" fill="#0d1f15" fill-opacity="0.7"/>
-  <!-- Close tree layer -->
-  <path d="M0 530 L15 530 L25 470 L35 440 L45 400 L55 370 L65 400 L75 440 L90 530 L140 530 L155 460 L165 420 L175 380 L185 350 L195 380 L205 430 L220 530 L270 530 L285 470 L295 430 L305 390 L315 360 L325 390 L340 440 L355 530 L410 530 L425 470 L435 430 L445 390 L455 360 L465 340 L475 360 L485 400 L500 460 L515 530 L560 530 L575 470 L585 430 L595 400 L605 370 L615 400 L630 450 L645 530 L700 530 L715 470 L725 440 L735 400 L745 430 L760 480 L775 530 L800 530 Z" fill="#091a10" fill-opacity="0.85"/>
-  <!-- Ground -->
-  <rect x="0" y="530" width="800" height="70" fill="#071409"/>
-  <!-- Mist layers -->
-  <ellipse cx="200" cy="480" rx="250" ry="30" fill="#6b8f7b" fill-opacity="0.06"/>
-  <ellipse cx="600" cy="440" rx="200" ry="25" fill="#8aaa98" fill-opacity="0.05"/>
-  <ellipse cx="400" cy="510" rx="300" ry="20" fill="#6b8f7b" fill-opacity="0.04"/>
-  <!-- Fireflies / particles -->
-  <circle cx="150" cy="350" r="2" fill="#a7f3d0" fill-opacity="0.3"/>
-  <circle cx="380" cy="300" r="1.5" fill="#a7f3d0" fill-opacity="0.25"/>
-  <circle cx="550" cy="380" r="2" fill="#a7f3d0" fill-opacity="0.2"/>
-  <circle cx="680" cy="320" r="1.5" fill="#a7f3d0" fill-opacity="0.3"/>
-  <circle cx="450" cy="420" r="1" fill="#a7f3d0" fill-opacity="0.25"/>
+  <rect width="800" height="600" fill="url(#moonGlow)"/>
+  <!-- Zen garden raked sand lines -->
+  <g stroke="#c9a96e" stroke-width="0.4" fill="none" opacity="0.15">
+    <path d="M50,380 Q200,370 350,380 Q500,390 650,380 Q730,375 780,378"/>
+    <path d="M50,395 Q200,385 350,395 Q500,405 650,395 Q730,390 780,393"/>
+    <path d="M50,410 Q200,400 350,410 Q500,420 650,410 Q730,405 780,408"/>
+    <path d="M50,425 Q200,415 350,425 Q500,435 650,425 Q730,420 780,423"/>
+    <path d="M50,440 Q200,430 350,440 Q500,450 650,440 Q730,435 780,438"/>
+    <path d="M50,455 Q200,445 350,455 Q500,465 650,455 Q730,450 780,453"/>
+    <path d="M50,470 Q200,460 350,470 Q500,480 650,470 Q730,465 780,468"/>
+    <path d="M50,485 Q200,475 350,485 Q500,495 650,485 Q730,480 780,483"/>
+    <path d="M50,500 Q200,490 350,500 Q500,510 650,500 Q730,495 780,498"/>
+    <path d="M50,515 Q200,505 350,515 Q500,525 650,515 Q730,510 780,513"/>
+  </g>
+  <!-- Circular raked patterns around stones -->
+  <g stroke="#c9a96e" stroke-width="0.4" fill="none" opacity="0.18">
+    <ellipse cx="300" cy="430" rx="60" ry="20"/>
+    <ellipse cx="300" cy="430" rx="75" ry="28"/>
+    <ellipse cx="300" cy="430" rx="90" ry="36"/>
+    <ellipse cx="560" cy="460" rx="45" ry="15"/>
+    <ellipse cx="560" cy="460" rx="58" ry="22"/>
+    <ellipse cx="560" cy="460" rx="72" ry="29"/>
+  </g>
+  <!-- Zen stones -->
+  <g fill="#1a1815" stroke="#c9a96e" stroke-width="0.6" stroke-opacity="0.35">
+    <ellipse cx="300" cy="420" rx="30" ry="22"/>
+    <ellipse cx="285" cy="405" rx="18" ry="14"/>
+    <ellipse cx="310" cy="408" rx="12" ry="10"/>
+  </g>
+  <g fill="#1a1815" stroke="#c9a96e" stroke-width="0.6" stroke-opacity="0.35">
+    <ellipse cx="560" cy="452" rx="22" ry="16"/>
+    <ellipse cx="550" cy="442" rx="14" ry="10"/>
+  </g>
+  <!-- Bamboo/tree shapes on left -->
+  <g stroke="#c9a96e" stroke-width="1" opacity="0.25" fill="none">
+    <line x1="80" y1="380" x2="80" y2="150"/>
+    <line x1="100" y1="380" x2="100" y2="180"/>
+    <line x1="120" y1="380" x2="120" y2="200"/>
+  </g>
+  <!-- Foliage suggestion -->
+  <g fill="#c9a96e" opacity="0.08">
+    <circle cx="80" cy="150" r="30"/>
+    <circle cx="100" cy="170" r="25"/>
+    <circle cx="120" cy="190" r="22"/>
+    <circle cx="95" cy="140" r="28"/>
+  </g>
+  <!-- Moon -->
+  <circle cx="620" cy="100" r="30" fill="#c9a96e" opacity="0.06"/>
+  <circle cx="620" cy="100" r="20" fill="#c9a96e" opacity="0.08"/>
+  <circle cx="620" cy="100" r="2" fill="#c9a96e" opacity="0.4"/>
+  <!-- Stone lantern abstract -->
+  <g stroke="#c9a96e" stroke-width="0.8" fill="none" opacity="0.3" transform="translate(680,300)">
+    <rect x="-8" y="0" width="16" height="60"/>
+    <rect x="-15" y="-8" width="30" height="10" rx="2"/>
+    <polygon points="0,-22 -18,-8 18,-8"/>
+    <rect x="-4" y="60" width="8" height="15"/>
+    <rect x="-12" y="75" width="24" height="5"/>
+  </g>
 </svg>

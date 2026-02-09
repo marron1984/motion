@@ -1,38 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 533" width="800" height="533">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1a0a14"/>
-      <stop offset="50%" stop-color="#3b1028"/>
-      <stop offset="100%" stop-color="#5c1a3e"/>
+      <stop offset="0%" stop-color="#131210"/>
+      <stop offset="100%" stop-color="#0a0a08"/>
     </linearGradient>
-    <radialGradient id="glow" cx="45%" cy="50%" r="35%">
-      <stop offset="0%" stop-color="#f472b6" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#f472b6" stop-opacity="0"/>
+    <radialGradient id="glow" cx="40%" cy="45%" r="40%">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0a0a08" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <rect width="600" height="400" fill="url(#bg)"/>
-  <rect width="600" height="400" fill="url(#glow)"/>
-  <!-- Cursor arrow -->
-  <path d="M260 130 L260 280 L295 250 L330 310 L350 300 L315 240 L355 235 Z" fill="none" stroke="#f472b6" stroke-opacity="0.35" stroke-width="2" stroke-linejoin="round"/>
-  <path d="M268 148 L268 265 L298 240 L328 295 L340 290 L310 235 L343 230 Z" fill="#f472b6" fill-opacity="0.06"/>
-  <!-- Click ripple rings -->
-  <circle cx="265" cy="135" r="20" fill="none" stroke="#f472b6" stroke-opacity="0.2" stroke-width="1.5"/>
-  <circle cx="265" cy="135" r="35" fill="none" stroke="#f472b6" stroke-opacity="0.12" stroke-width="1"/>
-  <circle cx="265" cy="135" r="50" fill="none" stroke="#f472b6" stroke-opacity="0.06" stroke-width="1"/>
-  <!-- Click dot -->
-  <circle cx="265" cy="135" r="5" fill="#f472b6" fill-opacity="0.3"/>
-  <!-- Touch/tap indicators -->
-  <circle cx="450" cy="180" r="15" fill="none" stroke="#fb7185" stroke-opacity="0.15" stroke-width="1.5"/>
-  <circle cx="450" cy="180" r="6" fill="#fb7185" fill-opacity="0.12"/>
-  <circle cx="160" cy="280" r="12" fill="none" stroke="#ec4899" stroke-opacity="0.12" stroke-width="1"/>
-  <circle cx="160" cy="280" r="4" fill="#ec4899" fill-opacity="0.1"/>
-  <!-- Gesture swipe line -->
-  <path d="M420 260 Q460 240 500 260 Q540 280 560 260" fill="none" stroke="#f472b6" stroke-opacity="0.15" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Arrow head on swipe -->
-  <path d="M555 255 L565 260 L555 265" fill="none" stroke="#f472b6" stroke-opacity="0.15" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Decorative dots -->
-  <circle cx="100" cy="100" r="2" fill="#f472b6" fill-opacity="0.15"/>
-  <circle cx="520" cy="100" r="1.5" fill="#fb7185" fill-opacity="0.12"/>
-  <circle cx="480" cy="340" r="2" fill="#f472b6" fill-opacity="0.1"/>
-  <circle cx="130" cy="180" r="1.5" fill="#ec4899" fill-opacity="0.12"/>
+  <rect width="800" height="533" fill="url(#bg)"/>
+  <rect width="800" height="533" fill="url(#glow)"/>
+  <!-- Medical package - abstract clipboard/document -->
+  <g transform="translate(400,250)" stroke="#c9a96e" fill="none" opacity="0.4" stroke-width="0.8">
+    <!-- Document shape -->
+    <rect x="-80" y="-120" width="160" height="220" rx="4"/>
+    <!-- Clip at top -->
+    <rect x="-25" y="-135" width="50" height="25" rx="3"/>
+    <!-- Lines on document -->
+    <line x1="-55" y1="-80" x2="55" y2="-80" opacity="0.6"/>
+    <line x1="-55" y1="-55" x2="55" y2="-55" opacity="0.6"/>
+    <line x1="-55" y1="-30" x2="30" y2="-30" opacity="0.6"/>
+    <line x1="-55" y1="-5" x2="55" y2="-5" opacity="0.6"/>
+    <line x1="-55" y1="20" x2="40" y2="20" opacity="0.6"/>
+    <!-- Checkmarks -->
+    <polyline points="-60,-78 -55,-73 -45,-83" stroke-width="1.2"/>
+    <polyline points="-60,-53 -55,-48 -45,-58" stroke-width="1.2"/>
+    <polyline points="-60,-28 -55,-23 -45,-33" stroke-width="1.2"/>
+  </g>
+  <!-- Stethoscope abstract -->
+  <g transform="translate(250,300)" stroke="#c9a96e" fill="none" opacity="0.2" stroke-width="0.7">
+    <path d="M0,0 Q-30,-40 -20,-80 Q-10,-120 20,-120"/>
+    <path d="M30,0 Q60,-40 50,-80 Q40,-120 20,-120"/>
+    <circle cx="15" cy="10" r="15"/>
+  </g>
+  <!-- Pills/capsule shapes -->
+  <g fill="none" stroke="#c9a96e" opacity="0.2" stroke-width="0.6">
+    <rect x="560" y="180" width="40" height="20" rx="10"/>
+    <line x1="580" y1="180" x2="580" y2="200"/>
+    <rect x="620" y="210" width="35" height="18" rx="9" transform="rotate(15,637,219)"/>
+    <line x1="637" y1="210" x2="637" y2="228" transform="rotate(15,637,219)"/>
+  </g>
+  <!-- Subtle grid -->
+  <g stroke="#c9a96e" stroke-width="0.2" opacity="0.06">
+    <line x1="0" y1="133" x2="800" y2="133"/>
+    <line x1="0" y1="266" x2="800" y2="266"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="533"/>
+    <line x1="400" y1="0" x2="400" y2="533"/>
+    <line x1="600" y1="0" x2="600" y2="533"/>
+  </g>
 </svg>

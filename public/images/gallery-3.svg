@@ -1,56 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0014"/>
-      <stop offset="50%" stop-color="#12002a"/>
-      <stop offset="100%" stop-color="#0a001e"/>
+      <stop offset="0%" stop-color="#131210"/>
+      <stop offset="100%" stop-color="#0a0a08"/>
     </linearGradient>
-    <linearGradient id="neon1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#a855f7"/>
-      <stop offset="100%" stop-color="#3b82f6"/>
-    </linearGradient>
-    <linearGradient id="neon2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ec4899"/>
-      <stop offset="100%" stop-color="#a855f7"/>
-    </linearGradient>
-    <linearGradient id="neon3" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#ec4899"/>
-    </linearGradient>
-    <radialGradient id="glow1" cx="30%" cy="25%" r="30%">
-      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    <radialGradient id="lampGlow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#c9a96e" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glow2" cx="70%" cy="65%" r="30%">
-      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#ec4899" stop-opacity="0"/>
+    <radialGradient id="lampGlow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#c9a96e" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="800" height="1000" fill="url(#bg)"/>
-  <rect width="800" height="1000" fill="url(#glow1)"/>
-  <rect width="800" height="1000" fill="url(#glow2)"/>
-  <!-- Large triangle -->
-  <polygon points="400,150 180,550 620,550" fill="none" stroke="url(#neon1)" stroke-width="1.5" stroke-opacity="0.4"/>
-  <polygon points="400,200 220,520 580,520" fill="none" stroke="url(#neon1)" stroke-width="1" stroke-opacity="0.2"/>
-  <!-- Rotated square -->
-  <rect x="300" y="400" width="250" height="250" fill="none" stroke="url(#neon2)" stroke-width="1.5" stroke-opacity="0.35" transform="rotate(45, 425, 525)"/>
-  <rect x="325" y="425" width="200" height="200" fill="none" stroke="url(#neon2)" stroke-width="1" stroke-opacity="0.15" transform="rotate(45, 425, 525)"/>
-  <!-- Circle -->
-  <circle cx="350" cy="400" r="150" fill="none" stroke="url(#neon3)" stroke-width="1.5" stroke-opacity="0.3"/>
-  <circle cx="350" cy="400" r="120" fill="none" stroke="url(#neon3)" stroke-width="1" stroke-opacity="0.15"/>
-  <!-- Hexagon -->
-  <polygon points="550,700 620,740 620,820 550,860 480,820 480,740" fill="none" stroke="url(#neon1)" stroke-width="1.5" stroke-opacity="0.3"/>
-  <!-- Grid lines -->
-  <line x1="0" y1="500" x2="800" y2="500" stroke="#a855f7" stroke-opacity="0.06" stroke-width="0.5"/>
-  <line x1="400" y1="0" x2="400" y2="1000" stroke="#3b82f6" stroke-opacity="0.06" stroke-width="0.5"/>
-  <line x1="0" y1="250" x2="800" y2="250" stroke="#ec4899" stroke-opacity="0.04" stroke-width="0.5"/>
-  <line x1="0" y1="750" x2="800" y2="750" stroke="#ec4899" stroke-opacity="0.04" stroke-width="0.5"/>
-  <line x1="200" y1="0" x2="200" y2="1000" stroke="#a855f7" stroke-opacity="0.04" stroke-width="0.5"/>
-  <line x1="600" y1="0" x2="600" y2="1000" stroke="#a855f7" stroke-opacity="0.04" stroke-width="0.5"/>
-  <!-- Dots at intersections -->
-  <circle cx="400" cy="500" r="4" fill="#a855f7" fill-opacity="0.5"/>
-  <circle cx="200" cy="250" r="3" fill="#ec4899" fill-opacity="0.4"/>
-  <circle cx="600" cy="750" r="3" fill="#3b82f6" fill-opacity="0.4"/>
-  <circle cx="200" cy="750" r="2" fill="#a855f7" fill-opacity="0.3"/>
-  <circle cx="600" cy="250" r="2" fill="#ec4899" fill-opacity="0.3"/>
+  <!-- Room perspective lines (floor) -->
+  <g stroke="#c9a96e" stroke-width="0.3" opacity="0.1">
+    <line x1="400" y1="400" x2="0" y2="700"/>
+    <line x1="400" y1="400" x2="800" y2="700"/>
+    <line x1="400" y1="400" x2="0" y2="600"/>
+    <line x1="400" y1="400" x2="800" y2="600"/>
+  </g>
+  <!-- Floor -->
+  <polygon points="0,600 800,600 800,1000 0,1000" fill="#0d0c0a"/>
+  <line x1="0" y1="600" x2="800" y2="600" stroke="#c9a96e" stroke-width="0.5" opacity="0.2"/>
+  <!-- Back wall panel lines -->
+  <g stroke="#c9a96e" stroke-width="0.4" opacity="0.12">
+    <line x1="200" y1="200" x2="200" y2="600"/>
+    <line x1="400" y1="200" x2="400" y2="600"/>
+    <line x1="600" y1="200" x2="600" y2="600"/>
+    <line x1="100" y1="200" x2="700" y2="200"/>
+  </g>
+  <!-- Bed shape -->
+  <g opacity="0.5">
+    <rect x="180" y="580" width="440" height="200" rx="3" fill="#151311" stroke="#c9a96e" stroke-width="0.6" stroke-opacity="0.3"/>
+    <!-- Headboard -->
+    <rect x="190" y="520" width="420" height="70" rx="2" fill="#171513" stroke="#c9a96e" stroke-width="0.5" stroke-opacity="0.25"/>
+    <!-- Pillows -->
+    <rect x="220" y="540" width="120" height="40" rx="8" fill="#1a1816" stroke="#c9a96e" stroke-width="0.4" stroke-opacity="0.2"/>
+    <rect x="460" y="540" width="120" height="40" rx="8" fill="#1a1816" stroke="#c9a96e" stroke-width="0.4" stroke-opacity="0.2"/>
+    <!-- Bed runner -->
+    <rect x="180" y="700" width="440" height="30" fill="#c9a96e" opacity="0.06"/>
+  </g>
+  <!-- Side tables -->
+  <rect x="100" y="620" width="60" height="60" rx="2" fill="#131210" stroke="#c9a96e" stroke-width="0.5" stroke-opacity="0.25" opacity="0.5"/>
+  <rect x="640" y="620" width="60" height="60" rx="2" fill="#131210" stroke="#c9a96e" stroke-width="0.5" stroke-opacity="0.25" opacity="0.5"/>
+  <!-- Table lamps with glow -->
+  <circle cx="130" cy="580" r="60" fill="url(#lampGlow1)"/>
+  <circle cx="670" cy="580" r="60" fill="url(#lampGlow2)"/>
+  <g stroke="#c9a96e" stroke-width="0.8" fill="none" opacity="0.4">
+    <line x1="130" y1="620" x2="130" y2="590"/>
+    <ellipse cx="130" cy="585" rx="12" ry="8"/>
+    <line x1="670" y1="620" x2="670" y2="590"/>
+    <ellipse cx="670" cy="585" rx="12" ry="8"/>
+  </g>
+  <!-- Window with curtains suggestion -->
+  <rect x="250" y="240" width="300" height="250" fill="#151412" stroke="#c9a96e" stroke-width="0.5" stroke-opacity="0.2" opacity="0.6"/>
+  <line x1="400" y1="240" x2="400" y2="490" stroke="#c9a96e" stroke-width="0.3" opacity="0.15"/>
+  <!-- Curtain lines -->
+  <g stroke="#c9a96e" stroke-width="0.3" opacity="0.1">
+    <line x1="250" y1="240" x2="230" y2="600"/>
+    <line x1="260" y1="240" x2="245" y2="600"/>
+    <line x1="550" y1="240" x2="570" y2="600"/>
+    <line x1="540" y1="240" x2="555" y2="600"/>
+  </g>
+  <!-- Warm ambient light from window -->
+  <rect x="260" y="260" width="280" height="220" fill="#c9a96e" opacity="0.03"/>
 </svg>

@@ -1,47 +1,86 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1c0e04"/>
-      <stop offset="30%" stop-color="#3b1a08"/>
-      <stop offset="60%" stop-color="#7c3f10"/>
-      <stop offset="85%" stop-color="#b45309"/>
-      <stop offset="100%" stop-color="#d97706"/>
+      <stop offset="0%" stop-color="#0a0a08"/>
+      <stop offset="70%" stop-color="#131210"/>
+      <stop offset="100%" stop-color="#0a0a08"/>
     </linearGradient>
-    <radialGradient id="sunglow" cx="75%" cy="25%" r="35%">
-      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.3"/>
-      <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.1"/>
-      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    <radialGradient id="sunGlow" cx="70%" cy="30%" r="30%">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0a0a08" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="dune1" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#92400e" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#78350f" stop-opacity="0.4"/>
-    </linearGradient>
-    <linearGradient id="dune2" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#78350f" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#451a03" stop-opacity="0.5"/>
-    </linearGradient>
+    <radialGradient id="deerGlow" cx="40%" cy="60%" r="30%">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0a0a08" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   <rect width="800" height="600" fill="url(#bg)"/>
-  <rect width="800" height="600" fill="url(#sunglow)"/>
-  <!-- Sun disc -->
-  <circle cx="600" cy="150" r="50" fill="#fbbf24" fill-opacity="0.15"/>
-  <circle cx="600" cy="150" r="35" fill="#fbbf24" fill-opacity="0.1"/>
-  <!-- Far dune ridge -->
-  <path d="M0 380 Q100 350 200 370 Q350 400 500 360 Q600 330 700 350 Q750 360 800 345 L800 400 L0 400 Z" fill="url(#dune1)" fill-opacity="0.5"/>
-  <!-- Mid dune -->
-  <path d="M0 430 Q50 410 120 420 Q200 440 300 400 Q400 360 500 390 Q600 420 700 400 Q750 390 800 410 L800 470 L0 470 Z" fill="url(#dune1)"/>
-  <!-- Sand ripples on mid dune -->
-  <path d="M0 430 Q50 410 120 420 Q200 440 300 400 Q400 360 500 390 Q600 420 700 400 Q750 390 800 410" fill="none" stroke="#d97706" stroke-opacity="0.1" stroke-width="0.5"/>
-  <!-- Close dune -->
-  <path d="M0 500 Q80 470 180 480 Q280 500 380 460 Q480 420 580 460 Q650 490 720 470 Q770 460 800 475 L800 550 L0 550 Z" fill="url(#dune2)"/>
-  <!-- Foreground sand -->
-  <path d="M0 540 Q100 530 200 540 Q350 560 500 535 Q650 510 800 530 L800 600 L0 600 Z" fill="#2d1206" fill-opacity="0.8"/>
-  <!-- Heat haze / particles -->
-  <circle cx="250" cy="280" r="1.5" fill="#fbbf24" fill-opacity="0.15"/>
-  <circle cx="450" cy="310" r="1" fill="#fbbf24" fill-opacity="0.12"/>
-  <circle cx="350" cy="260" r="1" fill="#fbbf24" fill-opacity="0.1"/>
-  <circle cx="550" cy="290" r="1.5" fill="#fbbf24" fill-opacity="0.1"/>
-  <!-- Light rays from sun -->
-  <line x1="600" y1="150" x2="400" y2="350" stroke="#fbbf24" stroke-opacity="0.03" stroke-width="40"/>
-  <line x1="600" y1="150" x2="700" y2="400" stroke="#fbbf24" stroke-opacity="0.02" stroke-width="30"/>
+  <rect width="800" height="600" fill="url(#sunGlow)"/>
+  <rect width="800" height="600" fill="url(#deerGlow)"/>
+  <!-- Ground -->
+  <line x1="50" y1="480" x2="750" y2="480" stroke="#c9a96e" stroke-width="0.5" opacity="0.15"/>
+  <!-- Deer silhouette - elegant minimalist -->
+  <g transform="translate(320,250)" stroke="#c9a96e" fill="none" opacity="0.5" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Body -->
+    <ellipse cx="0" cy="100" rx="70" ry="40"/>
+    <!-- Neck -->
+    <path d="M-30,70 Q-40,30 -25,-10"/>
+    <path d="M-15,65 Q-20,30 -10,-5"/>
+    <!-- Head -->
+    <ellipse cx="-20" cy="-20" rx="22" ry="15" transform="rotate(-15,-20,-20)"/>
+    <!-- Ears -->
+    <path d="M-35,-30 Q-45,-55 -30,-45"/>
+    <path d="M-10,-32 Q-5,-58 5,-42"/>
+    <!-- Antlers -->
+    <g stroke-width="0.9" opacity="0.7">
+      <path d="M-25,-40 L-35,-80 L-50,-90"/>
+      <path d="M-35,-80 L-25,-100"/>
+      <path d="M-35,-80 L-45,-105"/>
+      <path d="M-8,-38 L5,-78 L20,-88"/>
+      <path d="M5,-78 L10,-100"/>
+      <path d="M5,-78 L18,-102"/>
+    </g>
+    <!-- Front legs -->
+    <line x1="-35" y1="135" x2="-40" y2="230"/>
+    <line x1="-15" y1="135" x2="-18" y2="230"/>
+    <!-- Back legs -->
+    <line x1="30" y1="130" x2="25" y2="230"/>
+    <line x1="50" y1="125" x2="48" y2="230"/>
+    <!-- Tail -->
+    <path d="M65,85 Q80,75 75,65"/>
+    <!-- Eye -->
+    <circle cx="-28" cy="-18" r="2" fill="#c9a96e" stroke="none" opacity="0.5"/>
+  </g>
+  <!-- Small golden light particles around deer -->
+  <g fill="#c9a96e" opacity="0.25">
+    <circle cx="220" cy="300" r="1.5"/>
+    <circle cx="450" cy="280" r="1"/>
+    <circle cx="380" cy="200" r="1.2"/>
+    <circle cx="260" cy="350" r="1"/>
+    <circle cx="420" cy="380" r="1.5"/>
+    <circle cx="340" cy="160" r="0.8"/>
+    <circle cx="500" cy="320" r="1"/>
+    <circle cx="200" cy="250" r="0.8"/>
+  </g>
+  <!-- Background trees suggestion -->
+  <g fill="#c9a96e" opacity="0.04">
+    <circle cx="600" cy="250" r="80"/>
+    <circle cx="650" cy="300" r="70"/>
+    <circle cx="700" cy="280" r="60"/>
+    <circle cx="100" cy="300" r="70"/>
+    <circle cx="130" cy="350" r="60"/>
+  </g>
+  <!-- Tree trunks -->
+  <g stroke="#c9a96e" stroke-width="1" opacity="0.12">
+    <line x1="600" y1="330" x2="600" y2="480"/>
+    <line x1="660" y1="360" x2="660" y2="480"/>
+    <line x1="100" y1="370" x2="100" y2="480"/>
+  </g>
+  <!-- Falling leaves / cherry blossom petals -->
+  <g fill="#c9a96e" opacity="0.15">
+    <ellipse cx="480" cy="180" rx="4" ry="2" transform="rotate(30,480,180)"/>
+    <ellipse cx="520" cy="250" rx="3" ry="1.5" transform="rotate(-20,520,250)"/>
+    <ellipse cx="560" cy="150" rx="3.5" ry="1.5" transform="rotate(45,560,150)"/>
+    <ellipse cx="440" cy="130" rx="3" ry="1.5" transform="rotate(10,440,130)"/>
+  </g>
 </svg>
