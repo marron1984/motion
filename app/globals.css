@@ -1,20 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #f0f0f0;
-  --accent: #c8a2ff;
-  --accent-dim: #8b5cf6;
-  --accent-hot: #e879f9;
-  --surface: #141414;
-  --surface-elevated: #1c1c1c;
-  --border: rgba(255, 255, 255, 0.08);
-  --text-muted: #888888;
+  --background: #0a0a08;
+  --foreground: #f0ede8;
+  --gold: #c9a96e;
+  --gold-light: #dfc492;
+  --gold-dim: #8a7040;
+  --accent: #c9a96e;
+  --accent-dim: #8a7040;
+  --accent-hot: #dfc492;
+  --surface: #131210;
+  --surface-elevated: #1a1916;
+  --border: rgba(201, 169, 110, 0.1);
+  --text-muted: #7a7568;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dim: var(--gold-dim);
   --color-accent: var(--accent);
   --color-accent-dim: var(--accent-dim);
   --color-accent-hot: var(--accent-hot);
@@ -22,8 +28,8 @@
   --color-surface-elevated: var(--surface-elevated);
   --color-border: var(--border);
   --color-text-muted: var(--text-muted);
-  --font-sans: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", Meiryo, "Segoe UI", Roboto, sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Hiragino Mincho ProN",
+    "Hiragino Sans", "Yu Mincho", "Noto Serif JP", "Times New Roman", serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
     monospace;
 }
@@ -41,10 +47,10 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans", Meiryo, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Mincho ProN",
+    "Hiragino Sans", "Yu Mincho", "Noto Serif JP", "Times New Roman", serif;
   line-height: 1.8;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -52,12 +58,11 @@ body {
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
-::selection { background: rgba(200,162,255,0.3); color: #fff; }
+::-webkit-scrollbar-thumb { background: rgba(201,169,110,0.2); border-radius: 2px; }
+::selection { background: rgba(201,169,110,0.3); color: #fff; }
 
 /* ========== KEYFRAME ANIMATIONS ========== */
 
-/* Gradient shift for hero background */
 @keyframes gradientShift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -68,7 +73,6 @@ body {
   animation: gradientShift 8s ease infinite;
 }
 
-/* Floating elements */
 @keyframes float1 {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   33% { transform: translateY(-20px) rotate(5deg); }
@@ -89,14 +93,12 @@ body {
 .animate-float-2 { animation: float2 8s ease-in-out infinite; }
 .animate-float-3 { animation: float3 10s ease-in-out infinite; }
 
-/* Pulse glow */
 @keyframes pulseGlow {
   0%, 100% { opacity: 0.3; transform: scale(1); }
   50% { opacity: 0.6; transform: scale(1.1); }
 }
 .animate-pulse-glow { animation: pulseGlow 4s ease-in-out infinite; }
 
-/* Marquee */
 @keyframes marqueeLeft {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -108,20 +110,17 @@ body {
 .animate-marquee-left { animation: marqueeLeft 25s linear infinite; }
 .animate-marquee-right { animation: marqueeRight 30s linear infinite; }
 
-/* Spin slow */
 @keyframes spinSlow {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 .animate-spin-slow { animation: spinSlow 20s linear infinite; }
 
-/* Shimmer line across */
 @keyframes shimmerLine {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(200%); }
 }
 
-/* Morph blob */
 @keyframes morph {
   0%, 100% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
   25% { border-radius: 30% 60% 70% 40%/50% 60% 30% 60%; }
@@ -130,7 +129,6 @@ body {
 }
 .animate-morph { animation: morph 8s ease-in-out infinite; }
 
-/* Gradient text */
 @keyframes textGradient {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -143,19 +141,21 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* Counter line */
 @keyframes fillWidth {
   from { width: 0%; }
   to { width: var(--fill-width, 100%); }
 }
 
-/* Ripple */
 @keyframes ripple {
   0% { transform: scale(0); opacity: 0.5; }
   100% { transform: scale(4); opacity: 0; }
 }
 
-/* Reduce motion */
+/* Gold text utility */
+.text-gold {
+  color: var(--gold);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

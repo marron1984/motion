@@ -19,7 +19,6 @@ export default function SectionHeading({
 
   return (
     <div ref={ref} className="mb-10 px-6 sm:px-8 md:px-12">
-      {/* Label with animated line */}
       <motion.div
         className="mb-2 flex items-center gap-2"
         initial={reducedMotion ? {} : { opacity: 0, x: -10 }}
@@ -27,17 +26,16 @@ export default function SectionHeading({
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <motion.div
-          className="h-[1px] bg-accent/60"
+          className="h-[1px] bg-gold/40"
           initial={{ width: 0 }}
           animate={inView ? { width: 24 } : {}}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         />
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent/70">
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold/60">
           {label}
         </p>
       </motion.div>
 
-      {/* Title with clip reveal */}
       <div className="overflow-hidden">
         <motion.h2
           className="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl"

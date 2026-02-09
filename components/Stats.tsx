@@ -3,13 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useReducedMotion, useInView } from "@/lib/hooks";
-
-const stats = [
-  { label: "Projects", value: 120, suffix: "+", accent: "#c8a2ff" },
-  { label: "Clients", value: 45, suffix: "+", accent: "#7dd3fc" },
-  { label: "Awards", value: 18, suffix: "", accent: "#fca5a5" },
-  { label: "Countries", value: 30, suffix: "+", accent: "#86efac" },
-];
+import { useLocale } from "@/lib/locale-context";
 
 function AnimatedCounter({
   value,
@@ -38,7 +32,6 @@ function AnimatedCounter({
     function tick(now: number) {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.round(eased * value));
       if (progress < 1) {
@@ -55,12 +48,13 @@ function AnimatedCounter({
 export default function Stats() {
   const reducedMotion = useReducedMotion();
   const [ref, inView] = useInView(0.2);
+  const { t } = useLocale();
+  const stats = t.stats.items;
 
   return (
     <section className="relative overflow-hidden py-20">
-      {/* Background decoration */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 animate-morph bg-accent/[0.04] blur-[100px]" />
+        <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 animate-morph bg-gold/[0.02] blur-[100px]" />
       </div>
 
       <div
@@ -83,7 +77,6 @@ export default function Stats() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            {/* Top accent bar */}
             <motion.div
               className="absolute left-0 right-0 top-0 h-[2px]"
               initial={{ scaleX: 0 }}
@@ -111,7 +104,6 @@ export default function Stats() {
               {stat.label}
             </p>
 
-            {/* Pulse glow decoration */}
             <div
               className="absolute -bottom-4 -right-4 h-16 w-16 rounded-full blur-2xl"
               style={{ backgroundColor: `${stat.accent}08` }}

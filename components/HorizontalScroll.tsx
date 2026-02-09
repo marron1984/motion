@@ -2,32 +2,34 @@
 
 import { useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useReducedMotion, useInView } from "@/lib/hooks";
+import { useLocale } from "@/lib/locale-context";
 import SectionHeading from "./SectionHeading";
 
-const cards = [
-  { title: "Strategy", desc: "Research-driven insights for digital products.", num: "01", accent: "#c8a2ff" },
-  { title: "Design", desc: "Pixel-perfect interfaces that feel alive.", num: "02", accent: "#e879f9" },
-  { title: "Development", desc: "Clean, performant code built to last.", num: "03", accent: "#7dd3fc" },
-  { title: "Motion", desc: "Animations that bring your product to life.", num: "04", accent: "#fca5a5" },
-  { title: "Launch", desc: "Seamless deployment and ongoing support.", num: "05", accent: "#86efac" },
+const cardPhotos = [
+  "/images/photos/photo-5.jpg",
+  "/images/photos/photo-29.jpg",
+  "/images/photos/photo-30.jpg",
+  "/images/photos/photo-32.jpg",
 ];
 
 export default function HorizontalScroll() {
   const reducedMotion = useReducedMotion();
   const [ref, inView] = useInView(0.1);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { t } = useLocale();
+  const items = t.medical.items;
 
   return (
-    <section className="py-20">
+    <section id="medical" className="py-20">
       <SectionHeading
-        label="Process"
-        title="How we work"
-        description="Our proven workflow from concept to launch."
+        label={t.medical.label}
+        title={t.medical.title}
+        description={t.medical.description}
       />
 
       <div ref={ref} className="relative">
-        {/* Scroll container */}
         <div
           ref={scrollRef}
           className="flex gap-4 overflow-x-auto px-6 pb-4 sm:gap-5 sm:px-8 md:px-12"
@@ -38,12 +40,12 @@ export default function HorizontalScroll() {
             msOverflowStyle: "none",
           }}
         >
-          {cards.map((card, i) => (
+          {items.map((card, i) => (
             <motion.div
-              key={card.num}
+              key={card.title}
               className="relative flex-none overflow-hidden rounded-2xl border border-border bg-surface"
               style={{
-                width: "min(280px, 75vw)",
+                width: "min(300px, 80vw)",
                 scrollSnapAlign: "start",
               }}
               initial={
@@ -60,27 +62,20 @@ export default function HorizontalScroll() {
               whileHover={reducedMotion ? {} : { y: -4 }}
               whileTap={{ scale: 0.98 }}
             >
-              {/* Large number background */}
-              <div className="relative p-6 pb-8">
-                <motion.span
-                  className="absolute -right-2 -top-4 text-[80px] font-black leading-none"
-                  style={{ color: `${card.accent}08` }}
-                  initial={reducedMotion ? {} : { opacity: 0, scale: 0.5 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{
-                    delay: 0.3 + i * 0.1,
-                    type: "spring",
-                    stiffness: 200,
-                    damping: 20,
-                  }}
-                >
-                  {card.num}
-                </motion.span>
-
-                {/* Accent dot */}
+              {/* Card photo */}
+              <div className="relative h-40 w-full overflow-hidden">
+                <Image
+                  src={cardPhotos[i % cardPhotos.length]}
+                  alt={card.title}
+                  fill
+                  sizes="300px"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70" />
+                {/* Price tag overlay */}
                 <motion.div
-                  className="mb-4 h-3 w-3 rounded-full"
-                  style={{ backgroundColor: card.accent }}
+                  className="absolute bottom-3 left-4 inline-block rounded-full px-3 py-1 text-xs font-bold backdrop-blur-sm"
+                  style={{ backgroundColor: `${card.accent}30`, color: card.accent }}
                   initial={reducedMotion ? {} : { scale: 0 }}
                   animate={inView ? { scale: 1 } : {}}
                   transition={{
@@ -89,11 +84,18 @@ export default function HorizontalScroll() {
                     stiffness: 400,
                     damping: 15,
                   }}
-                />
+                >
+                  {card.price}
+                </motion.div>
+              </div>
 
-                <h3 className="relative mb-2 text-lg font-bold text-white">
+              <div className="relative p-5">
+                <h3 className="relative mb-1 text-lg font-bold text-white">
                   {card.title}
                 </h3>
+                <p className="mb-3 text-xs font-medium text-gold/60">
+                  {card.duration}
+                </p>
                 <p className="relative text-sm leading-relaxed text-text-muted">
                   {card.desc}
                 </p>
@@ -118,7 +120,6 @@ export default function HorizontalScroll() {
           ))}
         </div>
 
-        {/* Gradient edges for scroll hint */}
         <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-background to-transparent" />
       </div>
     </section>

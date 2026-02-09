@@ -3,12 +3,14 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { features } from "@/lib/data";
 import { useReducedMotion } from "@/lib/hooks";
+import { useLocale } from "@/lib/locale-context";
 import SectionHeading from "./SectionHeading";
 
 export default function Features() {
   const reducedMotion = useReducedMotion();
+  const { t } = useLocale();
+  const items = t.pillars.items;
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number>(0);
@@ -27,8 +29,8 @@ export default function Features() {
         const scrolled = -rect.top;
         const progress = Math.min(Math.max(scrolled / totalHeight, 0), 1);
         const idx = Math.min(
-          Math.floor(progress * features.length),
-          features.length - 1
+          Math.floor(progress * items.length),
+          items.length - 1
         );
         setActiveIndex(idx);
       });
@@ -41,27 +43,27 @@ export default function Features() {
       window.removeEventListener("scroll", handleScroll);
       cancelAnimationFrame(rafRef.current);
     };
-  }, []);
+  }, [items.length]);
 
-  const f = features[activeIndex];
+  const f = items[activeIndex];
 
   return (
-    <section className="relative">
+    <section id="business" className="relative">
       <div className="py-16">
         <SectionHeading
-          label="Features"
-          title="What we do best"
-          description="Our core capabilities, refined through years of crafting digital experiences."
+          label={t.pillars.label}
+          title={t.pillars.title}
+          description={t.pillars.description}
         />
       </div>
 
       <div
         ref={containerRef}
         className="relative"
-        style={{ height: `${features.length * 100}vh` }}
+        style={{ height: `${items.length * 100}vh` }}
       >
         <div className="sticky top-0 h-screen overflow-hidden">
-          {/* Animated background glow per feature */}
+          {/* Background glow */}
           <AnimatePresence mode="wait">
             <motion.div
               key={`bg-${activeIndex}`}
@@ -78,39 +80,29 @@ export default function Features() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Progress bar with glow */}
+          {/* Progress bar */}
           <div className="absolute left-6 right-6 top-4 z-20 h-1 rounded-full bg-white/5 sm:left-8 sm:right-8">
             <motion.div
-              className="h-full rounded-full"
-              style={{ backgroundColor: f.accent }}
+              className="h-full rounded-full bg-gold"
               animate={{
-                width: `${((activeIndex + 1) / features.length) * 100}%`,
-              }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            />
-            <motion.div
-              className="absolute top-0 h-full rounded-full blur-sm"
-              style={{ backgroundColor: f.accent }}
-              animate={{
-                width: `${((activeIndex + 1) / features.length) * 100}%`,
-                opacity: 0.5,
+                width: `${((activeIndex + 1) / items.length) * 100}%`,
               }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             />
           </div>
 
-          {/* Step dots with color-matched accents */}
+          {/* Step dots */}
           <div className="absolute left-6 right-6 top-10 z-20 flex justify-between sm:left-8 sm:right-8">
-            {features.map((feat, i) => (
+            {items.map((item, i) => (
               <motion.div
-                key={feat.id}
+                key={item.id}
                 className="relative flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-bold"
                 animate={{
                   backgroundColor:
                     i <= activeIndex
-                      ? `${feat.accent}25`
+                      ? `${item.accent}25`
                       : "rgba(28,28,28,0.8)",
-                  color: i <= activeIndex ? feat.accent : "#555",
+                  color: i <= activeIndex ? item.accent : "#555",
                   scale: i === activeIndex ? 1.2 : i < activeIndex ? 1 : 0.8,
                 }}
                 transition={{
@@ -120,11 +112,11 @@ export default function Features() {
                   damping: 25,
                 }}
               >
-                {i + 1}
+                {item.num}
                 {i === activeIndex && (
                   <motion.div
                     className="absolute inset-0 rounded-full"
-                    style={{ border: `2px solid ${feat.accent}` }}
+                    style={{ border: `2px solid ${item.accent}` }}
                     initial={{ scale: 0.6, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.3 }}
@@ -158,7 +150,7 @@ export default function Features() {
                 className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-border bg-surface-elevated shadow-2xl sm:max-w-md"
                 style={{ perspective: 1000 }}
               >
-                {/* Shimmer line on top */}
+                {/* Shimmer line */}
                 <div className="absolute left-0 right-0 top-0 z-10 h-[2px] overflow-hidden">
                   <motion.div
                     className="h-full w-1/3"
@@ -171,7 +163,7 @@ export default function Features() {
 
                 <div className="relative aspect-[16/10] w-full overflow-hidden">
                   <Image
-                    src={f.image}
+                    src={f.id === 1 ? "/images/photos/photo-1.jpg" : f.id === 2 ? "/images/photos/photo-20.jpg" : "/images/photos/photo-11.jpg"}
                     alt={f.title}
                     fill
                     sizes="(max-width: 640px) 90vw, 448px"
@@ -189,7 +181,7 @@ export default function Features() {
                 </div>
                 <div className="p-6">
                   <motion.div
-                    className="mb-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
+                    className="mb-1 inline-block rounded-full px-3 py-1 text-xs font-semibold"
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.2, type: "spring", stiffness: 400, damping: 25 }}
@@ -198,7 +190,7 @@ export default function Features() {
                       color: f.accent,
                     }}
                   >
-                    0{f.id}
+                    {f.subtitle}
                   </motion.div>
                   <motion.h3
                     className="mb-2 text-xl font-bold text-white"
