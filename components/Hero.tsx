@@ -3,14 +3,26 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useReducedMotion } from "@/lib/hooks";
-import { fadeUp, staggerContainer } from "@/lib/motion";
+
+const floatingShapes = [
+  { size: 80, x: "10%", y: "20%", delay: 0, cls: "animate-float-1 bg-accent/10" },
+  { size: 120, x: "75%", y: "15%", delay: 1, cls: "animate-float-2 bg-accent-hot/8" },
+  { size: 60, x: "85%", y: "60%", delay: 2, cls: "animate-float-3 bg-accent/6" },
+  { size: 100, x: "20%", y: "70%", delay: 0.5, cls: "animate-float-2 bg-accent-dim/10" },
+  { size: 40, x: "50%", y: "30%", delay: 1.5, cls: "animate-float-1 bg-accent-hot/6" },
+];
+
+const titleWords = ["Design", "that", "moves."];
 
 export default function Hero() {
-  const reducedMotion = useReducedMotion();
+  const reduced = useReducedMotion();
 
   return (
     <section className="relative h-[100svh] min-h-[600px] w-full overflow-hidden">
-      {/* Background image */}
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 animate-gradient bg-gradient-to-br from-[#0a0014] via-[#1a0030] to-[#0d001a]" />
+
+      {/* Hero image with overlay */}
       <div className="absolute inset-0">
         <Image
           src="/images/hero.svg"
@@ -18,73 +30,135 @@ export default function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover opacity-40"
         />
       </div>
 
-      {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80" />
+      {/* Morphing blob */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="h-[400px] w-[400px] animate-morph bg-gradient-to-br from-accent/20 via-accent-hot/10 to-transparent blur-3xl" />
+      </div>
+
+      {/* Floating shapes */}
+      {floatingShapes.map((s, i) => (
+        <motion.div
+          key={i}
+          className={`pointer-events-none absolute rounded-full blur-xl ${s.cls}`}
+          style={{ width: s.size, height: s.size, left: s.x, top: s.y }}
+          initial={reduced ? { opacity: 0.5 } : { opacity: 0, scale: 0 }}
+          animate={{ opacity: 0.5, scale: 1 }}
+          transition={{ duration: 1.2, delay: s.delay + 0.5, ease: "easeOut" }}
+        />
+      ))}
+
+      {/* Spinning decorative ring */}
+      <div className="pointer-events-none absolute right-[-60px] top-[20%] h-[200px] w-[200px] animate-spin-slow rounded-full border border-accent/10 sm:right-[-30px]" />
+      <div className="pointer-events-none absolute left-[-40px] bottom-[30%] h-[150px] w-[150px] animate-spin-slow rounded-full border border-accent-hot/8" style={{ animationDirection: "reverse", animationDuration: "30s" }} />
+
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
       {/* Content */}
-      <motion.div
-        className="relative z-10 flex h-full flex-col items-start justify-end px-6 pb-20 sm:px-8 md:px-12 lg:px-20"
-        variants={staggerContainer}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.p
-          variants={fadeUp}
-          className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent/80 sm:text-sm"
+      <div className="relative z-10 flex h-full flex-col items-start justify-end px-6 pb-24 sm:px-8 md:px-12 lg:px-20">
+        {/* Label */}
+        <motion.div
+          className="mb-4 overflow-hidden"
+          initial={reduced ? {} : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Motion Portfolio
-        </motion.p>
+          <motion.p
+            className="text-xs font-medium uppercase tracking-[0.3em] text-accent/80 sm:text-sm"
+            initial={reduced ? {} : { y: 20 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          >
+            Motion Portfolio 2025
+          </motion.p>
+        </motion.div>
 
-        <motion.h1
-          variants={fadeUp}
-          className="mb-4 max-w-[320px] text-[2rem] font-bold leading-[1.15] tracking-tight text-white sm:max-w-md sm:text-4xl md:text-5xl lg:text-6xl"
-        >
-          Design that
-          <br />
-          <span className="text-accent">moves</span> you.
-        </motion.h1>
+        {/* Title - word by word reveal */}
+        <h1 className="mb-5 flex flex-wrap gap-x-3 text-[2.5rem] font-bold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+          {titleWords.map((word, i) => (
+            <span key={i} className="overflow-hidden">
+              <motion.span
+                className={`inline-block ${i === 2 ? "bg-gradient-to-r from-accent via-accent-hot to-accent animate-text-gradient" : ""}`}
+                initial={reduced ? {} : { y: "110%" }}
+                animate={{ y: "0%" }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.4 + i * 0.15,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                {word}
+              </motion.span>
+            </span>
+          ))}
+        </h1>
 
+        {/* Subtitle with slide */}
         <motion.p
-          variants={fadeUp}
-          className="mb-8 max-w-[280px] text-sm leading-relaxed text-white/70 sm:max-w-sm sm:text-base"
+          className="mb-8 max-w-[300px] text-sm leading-relaxed text-white/60 sm:max-w-sm sm:text-base"
+          initial={reduced ? {} : { opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 1, ease: "easeOut" }}
         >
           Crafting mobile experiences with thoughtful motion and pixel-perfect detail.
         </motion.p>
 
-        <motion.div variants={fadeUp} className="flex gap-3">
-          <button className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-black transition-transform active:scale-95 sm:px-8 sm:text-base">
-            View Work
-          </button>
-          <button className="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white/90 backdrop-blur-sm transition-transform active:scale-95 sm:px-8 sm:text-base">
+        {/* CTA buttons with stagger */}
+        <div className="flex gap-3">
+          <motion.button
+            className="relative overflow-hidden rounded-full bg-accent px-7 py-3.5 text-sm font-bold text-black transition-shadow active:scale-95 sm:px-8 sm:text-base"
+            initial={reduced ? {} : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1.2, ease: "easeOut" }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="relative z-10">View Work</span>
+            <motion.div
+              className="absolute inset-0 bg-white/20"
+              initial={{ x: "-100%" }}
+              whileHover={{ x: "100%" }}
+              transition={{ duration: 0.5 }}
+            />
+          </motion.button>
+          <motion.button
+            className="rounded-full border border-white/20 px-7 py-3.5 text-sm font-medium text-white/90 backdrop-blur-sm active:scale-95 sm:px-8 sm:text-base"
+            initial={reduced ? {} : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1.35, ease: "easeOut" }}
+            whileTap={{ scale: 0.95 }}
+          >
             Contact
-          </button>
-        </motion.div>
-      </motion.div>
+          </motion.button>
+        </div>
+      </div>
 
       {/* Scroll indicator */}
-      {!reducedMotion && (
+      <motion.div
+        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2"
+        initial={reduced ? {} : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 0.5 }}
+      >
         <motion.div
-          className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2"
-          animate={{ y: [0, 8, 0] }}
+          animate={reduced ? {} : { y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <div className="h-10 w-6 rounded-full border-2 border-white/30 p-1">
-            <motion.div
-              className="h-2 w-full rounded-full bg-white/60"
-              animate={{ y: [0, 16, 0] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">Scroll</span>
+            <div className="h-8 w-4 rounded-full border border-white/20">
+              <motion.div
+                className="mx-auto mt-1 h-2 w-1 rounded-full bg-accent/60"
+                animate={reduced ? {} : { y: [0, 12, 0], opacity: [1, 0.3, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              />
+            </div>
           </div>
         </motion.div>
-      )}
+      </motion.div>
     </section>
   );
 }
