@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1200"/>
+      <stop offset="50%" stop-color="#2d2005"/>
+      <stop offset="100%" stop-color="#45320a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="45%" cy="45%" r="40%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+  <rect width="600" height="400" fill="url(#glow)"/>
+  <!-- Large "A" letter -->
+  <text x="180" y="240" font-family="Georgia, 'Times New Roman', serif" font-size="180" font-weight="bold" fill="none" stroke="#f59e0b" stroke-opacity="0.2" stroke-width="1.5">A</text>
+  <!-- Smaller "a" letter -->
+  <text x="340" y="260" font-family="Georgia, 'Times New Roman', serif" font-size="140" font-style="italic" fill="none" stroke="#fbbf24" stroke-opacity="0.15" stroke-width="1.5">a</text>
+  <!-- Baseline guide -->
+  <line x1="150" y1="255" x2="480" y2="255" stroke="#f59e0b" stroke-opacity="0.08" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <!-- Cap-height guide -->
+  <line x1="150" y1="85" x2="480" y2="85" stroke="#f59e0b" stroke-opacity="0.06" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <!-- x-height guide -->
+  <line x1="150" y1="155" x2="480" y2="155" stroke="#fbbf24" stroke-opacity="0.05" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <!-- Decorative serif detail -->
+  <path d="M120 310 Q150 290 180 310" fill="none" stroke="#f59e0b" stroke-opacity="0.12" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M420 310 Q450 290 480 310" fill="none" stroke="#fbbf24" stroke-opacity="0.1" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Text line placeholders -->
+  <rect x="140" y="300" width="120" height="3" rx="1.5" fill="#f59e0b" fill-opacity="0.1"/>
+  <rect x="280" y="300" width="80" height="3" rx="1.5" fill="#fbbf24" fill-opacity="0.08"/>
+  <rect x="140" y="315" width="200" height="3" rx="1.5" fill="#f59e0b" fill-opacity="0.07"/>
+  <rect x="360" y="315" width="60" height="3" rx="1.5" fill="#fbbf24" fill-opacity="0.05"/>
+  <rect x="140" y="330" width="150" height="3" rx="1.5" fill="#f59e0b" fill-opacity="0.06"/>
+  <!-- Sparkle accents -->
+  <circle cx="160" cy="100" r="2" fill="#fbbf24" fill-opacity="0.2"/>
+  <circle cx="470" cy="130" r="2.5" fill="#f59e0b" fill-opacity="0.18"/>
+  <circle cx="500" cy="280" r="1.5" fill="#fbbf24" fill-opacity="0.15"/>
+  <circle cx="100" cy="250" r="2" fill="#f59e0b" fill-opacity="0.12"/>
+  <circle cx="530" cy="200" r="1.5" fill="#fbbf24" fill-opacity="0.1"/>
+</svg>

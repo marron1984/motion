@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#020c1b"/>
+      <stop offset="40%" stop-color="#0a1628"/>
+      <stop offset="70%" stop-color="#0c2340"/>
+      <stop offset="100%" stop-color="#0e3158"/>
+    </linearGradient>
+    <radialGradient id="moonlight" cx="70%" cy="20%" r="35%">
+      <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#93c5fd" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wave1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e40af" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#1e3a5f" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="wave2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#0c2340" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="wave3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#172554" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0a1628" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#moonlight)"/>
+  <!-- Wave layer 1 (far) -->
+  <path d="M0 350 Q100 320 200 350 Q300 380 400 340 Q500 300 600 340 Q700 380 800 350 L800 600 L0 600 Z" fill="url(#wave1)"/>
+  <!-- Wave layer 2 (mid) -->
+  <path d="M0 400 Q80 370 160 400 Q240 430 320 390 Q400 350 480 390 Q560 430 640 400 Q720 370 800 400 L800 600 L0 600 Z" fill="url(#wave2)"/>
+  <!-- Wave layer 3 (close) -->
+  <path d="M0 450 Q100 430 200 460 Q300 490 400 450 Q500 410 600 450 Q700 490 800 460 L800 600 L0 600 Z" fill="url(#wave3)"/>
+  <!-- Foam highlights -->
+  <path d="M0 450 Q100 430 200 460 Q300 490 400 450 Q500 410 600 450 Q700 490 800 460" fill="none" stroke="#93c5fd" stroke-opacity="0.08" stroke-width="1.5"/>
+  <path d="M0 400 Q80 370 160 400 Q240 430 320 390 Q400 350 480 390 Q560 430 640 400 Q720 370 800 400" fill="none" stroke="#93c5fd" stroke-opacity="0.06" stroke-width="1"/>
+  <!-- Deep water -->
+  <rect x="0" y="500" width="800" height="100" fill="#050e1a" fill-opacity="0.5"/>
+  <!-- Moon reflection shimmer -->
+  <ellipse cx="560" cy="380" rx="40" ry="3" fill="#93c5fd" fill-opacity="0.06"/>
+  <ellipse cx="555" cy="420" rx="25" ry="2" fill="#93c5fd" fill-opacity="0.05"/>
+  <ellipse cx="565" cy="460" rx="15" ry="2" fill="#93c5fd" fill-opacity="0.04"/>
+  <!-- Stars -->
+  <circle cx="120" cy="60" r="1.5" fill="#dbeafe" fill-opacity="0.5"/>
+  <circle cx="300" cy="100" r="1" fill="#dbeafe" fill-opacity="0.4"/>
+  <circle cx="450" cy="50" r="1.5" fill="#dbeafe" fill-opacity="0.3"/>
+  <circle cx="650" cy="80" r="1" fill="#dbeafe" fill-opacity="0.5"/>
+  <circle cx="550" cy="130" r="1" fill="#dbeafe" fill-opacity="0.3"/>
+  <circle cx="200" cy="160" r="1.5" fill="#dbeafe" fill-opacity="0.25"/>
+  <circle cx="720" cy="150" r="1" fill="#dbeafe" fill-opacity="0.35"/>
+</svg>

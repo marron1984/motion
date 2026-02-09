@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0a2a"/>
+      <stop offset="50%" stop-color="#1e1060"/>
+      <stop offset="100%" stop-color="#2d1b8a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="35%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+  <rect width="600" height="400" fill="url(#glow)"/>
+  <!-- Phone outline -->
+  <rect x="230" y="60" width="140" height="280" rx="18" fill="none" stroke="#818cf8" stroke-opacity="0.35" stroke-width="2"/>
+  <!-- Phone screen -->
+  <rect x="240" y="80" width="120" height="240" rx="4" fill="#1e1b4b" fill-opacity="0.5"/>
+  <!-- Screen notch -->
+  <rect x="275" y="65" width="50" height="5" rx="2.5" fill="#312e81" fill-opacity="0.5"/>
+  <!-- Screen content -->
+  <rect x="255" y="105" width="90" height="60" rx="4" fill="#6366f1" fill-opacity="0.08"/>
+  <rect x="255" y="175" width="70" height="4" rx="2" fill="#818cf8" fill-opacity="0.15"/>
+  <rect x="255" y="187" width="90" height="3" rx="1.5" fill="#818cf8" fill-opacity="0.1"/>
+  <rect x="255" y="197" width="60" height="3" rx="1.5" fill="#818cf8" fill-opacity="0.08"/>
+  <!-- Action buttons on screen -->
+  <rect x="255" y="220" width="40" height="16" rx="8" fill="#6366f1" fill-opacity="0.15"/>
+  <rect x="305" y="220" width="40" height="16" rx="8" fill="#818cf8" fill-opacity="0.1"/>
+  <!-- Navigation dots -->
+  <circle cx="285" cy="260" r="3" fill="#818cf8" fill-opacity="0.3"/>
+  <circle cx="300" cy="260" r="3" fill="#818cf8" fill-opacity="0.12"/>
+  <circle cx="315" cy="260" r="3" fill="#818cf8" fill-opacity="0.12"/>
+  <!-- Home indicator -->
+  <rect x="270" y="320" width="60" height="4" rx="2" fill="#6366f1" fill-opacity="0.15"/>
+  <!-- Signal pulse rings -->
+  <circle cx="300" cy="135" r="100" fill="none" stroke="#818cf8" stroke-opacity="0.05" stroke-width="1"/>
+  <circle cx="300" cy="135" r="140" fill="none" stroke="#818cf8" stroke-opacity="0.03" stroke-width="1"/>
+  <!-- Decorative particles -->
+  <circle cx="120" cy="100" r="2" fill="#818cf8" fill-opacity="0.2"/>
+  <circle cx="480" cy="120" r="2.5" fill="#6366f1" fill-opacity="0.15"/>
+  <circle cx="100" cy="300" r="1.5" fill="#818cf8" fill-opacity="0.15"/>
+  <circle cx="500" cy="320" r="2" fill="#6366f1" fill-opacity="0.12"/>
+</svg>

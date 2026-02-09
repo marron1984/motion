@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1c0e04"/>
+      <stop offset="30%" stop-color="#3b1a08"/>
+      <stop offset="60%" stop-color="#7c3f10"/>
+      <stop offset="85%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <radialGradient id="sunglow" cx="75%" cy="25%" r="35%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="dune1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#92400e" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#78350f" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="dune2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#78350f" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#451a03" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#sunglow)"/>
+  <!-- Sun disc -->
+  <circle cx="600" cy="150" r="50" fill="#fbbf24" fill-opacity="0.15"/>
+  <circle cx="600" cy="150" r="35" fill="#fbbf24" fill-opacity="0.1"/>
+  <!-- Far dune ridge -->
+  <path d="M0 380 Q100 350 200 370 Q350 400 500 360 Q600 330 700 350 Q750 360 800 345 L800 400 L0 400 Z" fill="url(#dune1)" fill-opacity="0.5"/>
+  <!-- Mid dune -->
+  <path d="M0 430 Q50 410 120 420 Q200 440 300 400 Q400 360 500 390 Q600 420 700 400 Q750 390 800 410 L800 470 L0 470 Z" fill="url(#dune1)"/>
+  <!-- Sand ripples on mid dune -->
+  <path d="M0 430 Q50 410 120 420 Q200 440 300 400 Q400 360 500 390 Q600 420 700 400 Q750 390 800 410" fill="none" stroke="#d97706" stroke-opacity="0.1" stroke-width="0.5"/>
+  <!-- Close dune -->
+  <path d="M0 500 Q80 470 180 480 Q280 500 380 460 Q480 420 580 460 Q650 490 720 470 Q770 460 800 475 L800 550 L0 550 Z" fill="url(#dune2)"/>
+  <!-- Foreground sand -->
+  <path d="M0 540 Q100 530 200 540 Q350 560 500 535 Q650 510 800 530 L800 600 L0 600 Z" fill="#2d1206" fill-opacity="0.8"/>
+  <!-- Heat haze / particles -->
+  <circle cx="250" cy="280" r="1.5" fill="#fbbf24" fill-opacity="0.15"/>
+  <circle cx="450" cy="310" r="1" fill="#fbbf24" fill-opacity="0.12"/>
+  <circle cx="350" cy="260" r="1" fill="#fbbf24" fill-opacity="0.1"/>
+  <circle cx="550" cy="290" r="1.5" fill="#fbbf24" fill-opacity="0.1"/>
+  <!-- Light rays from sun -->
+  <line x1="600" y1="150" x2="400" y2="350" stroke="#fbbf24" stroke-opacity="0.03" stroke-width="40"/>
+  <line x1="600" y1="150" x2="700" y2="400" stroke="#fbbf24" stroke-opacity="0.02" stroke-width="30"/>
+</svg>

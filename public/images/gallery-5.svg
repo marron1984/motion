@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="30%" stop-color="#1e293b"/>
+      <stop offset="60%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <radialGradient id="skyglow" cx="50%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="#64748b" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#64748b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mtn1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="mtn2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <rect width="800" height="1000" fill="url(#skyglow)"/>
+  <!-- Cloud wisps -->
+  <ellipse cx="200" cy="180" rx="120" ry="20" fill="#94a3b8" fill-opacity="0.06"/>
+  <ellipse cx="350" cy="170" rx="80" ry="15" fill="#94a3b8" fill-opacity="0.05"/>
+  <ellipse cx="600" cy="220" rx="140" ry="18" fill="#94a3b8" fill-opacity="0.05"/>
+  <ellipse cx="500" cy="280" rx="100" ry="12" fill="#94a3b8" fill-opacity="0.04"/>
+  <ellipse cx="150" cy="320" rx="90" ry="14" fill="#94a3b8" fill-opacity="0.04"/>
+  <!-- Far mountains -->
+  <path d="M0 550 L80 450 L160 380 L240 320 L320 380 L400 340 L450 290 L500 340 L560 400 L640 350 L700 300 L760 370 L800 430 L800 550 Z" fill="url(#mtn1)" fill-opacity="0.5"/>
+  <!-- Snow caps on far mountains -->
+  <path d="M240 320 L220 345 L260 345 Z" fill="#94a3b8" fill-opacity="0.15"/>
+  <path d="M450 290 L430 320 L470 320 Z" fill="#94a3b8" fill-opacity="0.15"/>
+  <path d="M700 300 L680 330 L720 330 Z" fill="#94a3b8" fill-opacity="0.12"/>
+  <!-- Mid mountains -->
+  <path d="M0 650 L50 580 L120 520 L180 480 L250 520 L320 460 L380 420 L420 380 L460 420 L520 480 L580 440 L640 400 L700 440 L760 500 L800 540 L800 650 Z" fill="url(#mtn2)" fill-opacity="0.7"/>
+  <!-- Snow caps on mid mountains -->
+  <path d="M180 480 L160 510 L200 510 Z" fill="#cbd5e1" fill-opacity="0.12"/>
+  <path d="M420 380 L395 415 L445 415 Z" fill="#cbd5e1" fill-opacity="0.15"/>
+  <path d="M640 400 L620 430 L660 430 Z" fill="#cbd5e1" fill-opacity="0.1"/>
+  <!-- Close mountains -->
+  <path d="M0 750 L60 680 L140 620 L200 580 L280 550 L340 500 L400 520 L460 560 L520 530 L580 490 L650 530 L720 580 L780 620 L800 660 L800 750 Z" fill="#0f172a" fill-opacity="0.85"/>
+  <!-- Foreground ground -->
+  <rect x="0" y="750" width="800" height="250" fill="#0c1322"/>
+  <!-- Mist between layers -->
+  <ellipse cx="400" cy="640" rx="350" ry="25" fill="#94a3b8" fill-opacity="0.05"/>
+  <ellipse cx="300" cy="550" rx="200" ry="15" fill="#94a3b8" fill-opacity="0.04"/>
+  <!-- Subtle stars -->
+  <circle cx="100" cy="60" r="1.5" fill="#e2e8f0" fill-opacity="0.4"/>
+  <circle cx="350" cy="90" r="1" fill="#e2e8f0" fill-opacity="0.3"/>
+  <circle cx="600" cy="50" r="1.5" fill="#e2e8f0" fill-opacity="0.35"/>
+  <circle cx="700" cy="120" r="1" fill="#e2e8f0" fill-opacity="0.3"/>
+  <circle cx="250" cy="140" r="1" fill="#e2e8f0" fill-opacity="0.25"/>
+</svg>

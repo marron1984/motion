@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a0510"/>
+      <stop offset="50%" stop-color="#2d0a1e"/>
+      <stop offset="100%" stop-color="#4a1030"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="45%" cy="50%" r="35%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lens" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect width="800" height="500" fill="url(#glow)"/>
+  <!-- Camera body -->
+  <rect x="280" y="160" width="240" height="180" rx="18" fill="none" stroke="#f43f5e" stroke-opacity="0.3" stroke-width="2"/>
+  <!-- Viewfinder bump -->
+  <rect x="340" y="140" width="60" height="25" rx="5" fill="none" stroke="#f43f5e" stroke-opacity="0.2" stroke-width="1.5"/>
+  <!-- Lens outer ring -->
+  <circle cx="400" cy="250" r="65" fill="none" stroke="#f43f5e" stroke-opacity="0.25" stroke-width="2"/>
+  <!-- Lens inner rings -->
+  <circle cx="400" cy="250" r="50" fill="none" stroke="#ec4899" stroke-opacity="0.2" stroke-width="1.5"/>
+  <circle cx="400" cy="250" r="35" fill="url(#lens)" fill-opacity="0.5"/>
+  <!-- Lens reflection -->
+  <ellipse cx="385" cy="238" rx="12" ry="8" fill="#f43f5e" fill-opacity="0.08" transform="rotate(-30, 385, 238)"/>
+  <!-- Lens center dot -->
+  <circle cx="400" cy="250" r="8" fill="#f43f5e" fill-opacity="0.15"/>
+  <!-- Shutter button -->
+  <circle cx="480" cy="165" r="10" fill="none" stroke="#f43f5e" stroke-opacity="0.25" stroke-width="1.5"/>
+  <!-- Image frame shapes floating around -->
+  <rect x="580" y="120" width="80" height="60" rx="4" fill="none" stroke="#ec4899" stroke-opacity="0.15" stroke-width="1"/>
+  <!-- Mountain icon in frame -->
+  <path d="M590 170 L610 145 L625 160 L640 135 L650 170 Z" fill="#ec4899" fill-opacity="0.08"/>
+  <rect x="120" y="280" width="70" height="55" rx="4" fill="none" stroke="#f43f5e" stroke-opacity="0.12" stroke-width="1"/>
+  <!-- Sun icon in frame -->
+  <circle cx="155" cy="300" r="10" fill="#f43f5e" fill-opacity="0.06"/>
+  <rect x="600" y="320" width="90" height="65" rx="4" fill="none" stroke="#ec4899" stroke-opacity="0.1" stroke-width="1"/>
+  <!-- Aperture-like marks -->
+  <circle cx="160" cy="150" r="2" fill="#f43f5e" fill-opacity="0.2"/>
+  <circle cx="650" cy="200" r="2.5" fill="#ec4899" fill-opacity="0.18"/>
+  <circle cx="250" cy="400" r="2" fill="#f43f5e" fill-opacity="0.15"/>
+  <circle cx="580" cy="430" r="1.5" fill="#ec4899" fill-opacity="0.15"/>
+</svg>

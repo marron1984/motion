@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="50%" stop-color="#0c1a3a"/>
+      <stop offset="100%" stop-color="#0e2554"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="35%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="screen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0f1d32"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect width="800" height="500" fill="url(#glow)"/>
+  <!-- Phone outline -->
+  <rect x="310" y="80" width="180" height="340" rx="20" ry="20" fill="none" stroke="#3b82f6" stroke-opacity="0.35" stroke-width="2"/>
+  <!-- Phone screen -->
+  <rect x="320" y="100" width="160" height="300" rx="5" fill="url(#screen)" fill-opacity="0.4"/>
+  <!-- Screen content lines -->
+  <rect x="340" y="130" width="80" height="6" rx="3" fill="#3b82f6" fill-opacity="0.2"/>
+  <rect x="340" y="150" width="120" height="4" rx="2" fill="#60a5fa" fill-opacity="0.12"/>
+  <rect x="340" y="164" width="100" height="4" rx="2" fill="#60a5fa" fill-opacity="0.1"/>
+  <!-- Image placeholder on screen -->
+  <rect x="340" y="185" width="120" height="80" rx="4" fill="#1e3a5f" fill-opacity="0.5"/>
+  <circle cx="365" cy="215" r="12" fill="#3b82f6" fill-opacity="0.15"/>
+  <path d="M340 255 L370 225 L395 245 L420 215 L460 255 Z" fill="#3b82f6" fill-opacity="0.1"/>
+  <!-- More content lines -->
+  <rect x="340" y="280" width="100" height="4" rx="2" fill="#60a5fa" fill-opacity="0.12"/>
+  <rect x="340" y="294" width="80" height="4" rx="2" fill="#60a5fa" fill-opacity="0.1"/>
+  <rect x="340" y="308" width="110" height="4" rx="2" fill="#60a5fa" fill-opacity="0.08"/>
+  <!-- Phone notch -->
+  <rect x="375" y="85" width="50" height="6" rx="3" fill="#1e3a5f" fill-opacity="0.5"/>
+  <!-- Home indicator -->
+  <rect x="370" y="400" width="60" height="4" rx="2" fill="#3b82f6" fill-opacity="0.15"/>
+  <!-- Signal waves from phone -->
+  <path d="M510 200 Q530 180 510 160" fill="none" stroke="#3b82f6" stroke-opacity="0.15" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M525 210 Q555 180 525 145" fill="none" stroke="#3b82f6" stroke-opacity="0.1" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M540 220 Q580 175 540 130" fill="none" stroke="#3b82f6" stroke-opacity="0.07" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Decorative dots -->
+  <circle cx="200" cy="150" r="3" fill="#60a5fa" fill-opacity="0.15"/>
+  <circle cx="150" cy="300" r="2" fill="#3b82f6" fill-opacity="0.12"/>
+  <circle cx="640" cy="350" r="3" fill="#60a5fa" fill-opacity="0.12"/>
+  <circle cx="680" cy="150" r="2" fill="#3b82f6" fill-opacity="0.1"/>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#021a0d"/>
+      <stop offset="50%" stop-color="#052e16"/>
+      <stop offset="100%" stop-color="#064e28"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="leaf1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#16a34a" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect width="800" height="500" fill="url(#glow)"/>
+  <!-- Elegant curved shape 1 - large swooping leaf/petal -->
+  <path d="M200 400 Q250 200 400 180 Q550 160 600 300" fill="none" stroke="#22c55e" stroke-opacity="0.2" stroke-width="2" stroke-linecap="round"/>
+  <path d="M200 400 Q280 220 420 200 Q560 180 620 310" fill="none" stroke="#22c55e" stroke-opacity="0.12" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Elegant curved shape 2 -->
+  <path d="M150 350 Q300 150 500 200 Q700 250 700 400" fill="none" stroke="#16a34a" stroke-opacity="0.15" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Diamond / gem shape -->
+  <polygon points="400,120 450,200 400,280 350,200" fill="none" stroke="#22c55e" stroke-opacity="0.2" stroke-width="1.5"/>
+  <polygon points="400,145 435,200 400,255 365,200" fill="#22c55e" fill-opacity="0.04"/>
+  <!-- Inner facet lines -->
+  <line x1="400" y1="120" x2="365" y2="200" stroke="#22c55e" stroke-opacity="0.08" stroke-width="0.5"/>
+  <line x1="400" y1="120" x2="435" y2="200" stroke="#22c55e" stroke-opacity="0.08" stroke-width="0.5"/>
+  <line x1="350" y1="200" x2="400" y2="280" stroke="#22c55e" stroke-opacity="0.06" stroke-width="0.5"/>
+  <line x1="450" y1="200" x2="400" y2="280" stroke="#22c55e" stroke-opacity="0.06" stroke-width="0.5"/>
+  <!-- Flowing ribbon shape -->
+  <path d="M100 300 Q200 250 300 280 Q400 310 500 260 Q600 210 700 250" fill="none" stroke="url(#leaf1)" stroke-width="3" stroke-linecap="round" stroke-opacity="0.6"/>
+  <path d="M100 310 Q200 260 300 290 Q400 320 500 270 Q600 220 700 260" fill="none" stroke="#22c55e" stroke-opacity="0.08" stroke-width="1"/>
+  <!-- Sparkle dots -->
+  <circle cx="300" cy="280" r="3" fill="#22c55e" fill-opacity="0.3"/>
+  <circle cx="500" cy="260" r="3" fill="#22c55e" fill-opacity="0.25"/>
+  <circle cx="400" cy="200" r="4" fill="#22c55e" fill-opacity="0.2"/>
+  <circle cx="200" cy="180" r="2" fill="#4ade80" fill-opacity="0.15"/>
+  <circle cx="620" cy="180" r="2" fill="#4ade80" fill-opacity="0.15"/>
+  <circle cx="150" cy="400" r="1.5" fill="#22c55e" fill-opacity="0.12"/>
+  <circle cx="680" cy="380" r="1.5" fill="#22c55e" fill-opacity="0.12"/>
+</svg>
