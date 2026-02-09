@@ -53,9 +53,14 @@ export default function Footer() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          <p className="text-xs text-text-muted">{t.footer.company}</p>
-          <p className="text-xs text-text-muted">{t.footer.established}</p>
-          <p className="text-xs text-text-muted">{t.footer.address}</p>
+          <p className="text-xs font-medium text-white/70">{t.footer.company}</p>
+          <p className="mt-2 text-xs text-text-muted">{t.footer.ceo}</p>
+          {t.footer.directors.map((d) => (
+            <p key={d} className="text-xs text-text-muted">{d}</p>
+          ))}
+          <p className="text-xs text-text-muted">{t.footer.officer}</p>
+          <p className="mt-2 text-xs text-text-muted">{t.footer.established}</p>
+          <p className="mt-1 text-xs leading-relaxed text-text-muted">{t.footer.address}</p>
         </motion.div>
 
         {/* Links */}

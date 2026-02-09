@@ -82,6 +82,9 @@ export interface Translations {
     company: string;
     established: string;
     address: string;
+    ceo: string;
+    directors: string[];
+    officer: string;
     links: string[];
     copyright: string;
   };
@@ -185,8 +188,11 @@ export const translations: Record<Locale, Translations> = {
     },
     footer: {
       company: "株式会社 DHP Urban Development",
-      established: "設立：2012年6月",
-      address: "東京都中央区",
+      established: "設立：2012年9月",
+      address: "〒541-0058 大阪府大阪市中央区南久宝寺町四丁目5番17号 アップウェル船場 2F",
+      ceo: "代表取締役　榎本 泰之",
+      directors: ["取締役　共田 政世", "取締役　河原 一男", "取締役　吉田 俊輔"],
+      officer: "執行役員　田邊 裕之",
       links: ["プライバシーポリシー", "利用規約", "採用情報"],
       copyright: "© 2025 DHP HOSPITALITY. All rights reserved.",
     },
@@ -288,8 +294,11 @@ export const translations: Record<Locale, Translations> = {
     },
     footer: {
       company: "DHP Urban Development Co., Ltd.",
-      established: "Established: June 2012",
-      address: "Chuo-ku, Tokyo",
+      established: "Established: September 2012",
+      address: "Upwell Senba 2F, 4-5-17 Minami-Kyuhoji-machi, Chuo-ku, Osaka 541-0058",
+      ceo: "CEO: Yasuyuki Enomoto",
+      directors: ["Director: Masayo Tomoda", "Director: Kazuo Kawahara", "Director: Shunsuke Yoshida"],
+      officer: "Executive Officer: Hiroyuki Tanabe",
       links: ["Privacy Policy", "Terms of Use", "Careers"],
       copyright: "© 2025 DHP HOSPITALITY. All rights reserved.",
     },
